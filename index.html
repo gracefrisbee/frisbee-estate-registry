@@ -2,125 +2,340 @@
 <html>
 
 <head>
+
 <title>The Frisbee Estate Registry</title>
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+
 body {
-    background-color: #f7f0df;
-    text-align: center;
-    font-family: Georgia, serif;
-    padding-top: 80px;
+
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+    linear-gradient(
+        rgba(245,235,210,0.85),
+        rgba(245,235,210,0.85)
+    ),
+    url("https://www.transparenttextures.com/patterns/old-wall.png");
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    color: #31452f;
+
 }
+
+
+.page {
+
+    width: 85%;
+    max-width: 900px;
+
+    background: #faf4df;
+
+    border: 12px double #b08b45;
+
+    padding: 50px;
+
+    box-shadow:
+    0 0 30px rgba(0,0,0,0.25);
+
+    text-align: center;
+
+    position: relative;
+
+}
+
+
+.page:before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    border:2px solid #b08b45;
+
+    pointer-events:none;
+
+}
+
+
+
+.crest {
+
+    font-size:50px;
+
+    color:#9a6b2f;
+
+}
+
 
 h1 {
-    font-size: 40px;
-    color: #35543a;
+
+    font-size:65px;
+
+    margin:10px;
+
+    font-family:'Great Vibes', cursive;
+
+    color:#7b3535;
+
 }
+
 
 h2 {
-    font-weight: normal;
-    color: #8b5e5e;
+
+    font-size:35px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-top:0;
+
 }
 
-.box {
-    background: white;
-    width: 70%;
-    margin: auto;
-    padding: 40px;
-    border-radius: 20px;
+
+
+.divider {
+
+    font-size:30px;
+
+    color:#b08b45;
+
 }
+
+
+
+p {
+
+    font-size:25px;
+
+    line-height:1.5;
+
+}
+
+
 
 input {
-    font-size: 20px;
-    padding: 15px;
-    width: 60%;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+
+    width:65%;
+
+    padding:18px;
+
+    margin-top:20px;
+
+    font-size:25px;
+
+    text-align:center;
+
+    font-family:'Cormorant Garamond', serif;
+
+    background:#fffaf0;
+
+    border:
+
+    2px solid #b08b45;
+
 }
+
+
 
 button {
-    font-size: 20px;
-    padding: 15px 30px;
-    margin-top: 20px;
-    background-color: #35543a;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+
+    margin-top:25px;
+
+    padding:18px 45px;
+
+    font-size:25px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    letter-spacing:2px;
+
+    color:#faf4df;
+
+    background:#31452f;
+
+    border:
+
+    3px solid #b08b45;
+
+    cursor:pointer;
+
 }
+
+
 
 button:hover {
-    opacity: 0.8;
+
+    background:#7b3535;
+
 }
 
+
+
 #welcome {
-    margin-top: 30px;
-    line-height: 1.6;
+
+    margin-top:35px;
+
+    font-size:30px;
+
 }
+
+
+
+.small {
+
+    font-style:italic;
+
+    font-size:22px;
+
+}
+
 
 </style>
 
 </head>
 
 
+
 <body>
 
-<div class="box">
 
-<h1>🌹 The Frisbee Estate 🌹</h1>
+<div class="page">
 
-<h2>Guest Registry</h2>
 
-<p>
-Kindly record your arrival so that society may properly be notified.
-</p>
+<div class="crest">
 
-<br>
-
-<input id="guestName" placeholder="Enter your name">
-
-<br>
-
-<button onclick="announceGuest()">
-Present Myself to Society
-</button>
-
-<h2 id="welcome"></h2>
+❦
 
 </div>
 
 
+<h2>
+The Frisbee Estate
+</h2>
+
+
+<h1>
+Guest Registry
+</h1>
+
+
+<div class="divider">
+❧ ❧ ❧
+</div>
+
+
+<p>
+Welcome, dear guest.
+<br>
+Your arrival is most important to us,
+<br>
+and society awaits with great anticipation.
+</p>
+
+
+
+<p class="small">
+
+Kindly announce your arrival so that the household may properly receive you.
+
+</p>
+
+
+
+<input 
+id="guestName"
+placeholder="Enter your name"
+>
+
+
+<br>
+
+
+<button onclick="announceGuest()">
+
+Present Myself to Society
+
+</button>
+
+
+
+<h2 id="welcome"></h2>
+
+
+
+</div>
+
+
+
 <script src="guest.js"></script>
+
 
 <script>
 
+
 function announceGuest(){
 
-    let name = document.getElementById("guestName").value.trim();
 
-    let guest = window.guests[name];
+let name =
+document.getElementById("guestName").value.trim();
 
-    if (guest) {
 
-        document.getElementById("welcome").innerHTML =
-        "🌹 Welcome " + guest.title +
-        "<br>Your arrival has been recorded."
-        + "<br><br>You belong to:"
-        + "<br><strong>" + guest.society + "</strong>";
 
-    } 
-    
-    else {
+let guest =
+window.guests[name];
 
-        document.getElementById("welcome").innerHTML =
-        "The registry does not yet recognize this guest.";
 
-    }
+
+if(guest){
+
+
+document.getElementById("welcome").innerHTML =
+
+"🌹 Welcome " + guest.title +
+
+"<br><br>Your arrival has been recorded."
+
++
+
+"<br><br>You belong to:"
++
+
+"<br><strong>" + guest.society + "</strong>";
+
+
 
 }
 
+
+else{
+
+
+document.getElementById("welcome").innerHTML =
+
+"The registry does not yet recognize this guest.";
+
+
+}
+
+
+}
+
+
 </script>
+
 
 
 </body>
