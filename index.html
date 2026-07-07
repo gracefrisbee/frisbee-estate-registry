@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <title>The Frisbee Estate Registry</title>
 
@@ -34,6 +35,8 @@ input {
     font-size: 20px;
     padding: 15px;
     width: 60%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 button {
@@ -44,17 +47,28 @@ button {
     color: white;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#welcome {
+    margin-top: 30px;
+    line-height: 1.6;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 <div class="box">
 
-<h1> The Frisbee Estate </h1>
+<h1>🌹 The Frisbee Estate 🌹</h1>
 
 <h2>Guest Registry</h2>
 
@@ -64,7 +78,7 @@ Kindly record your arrival so that society may properly be notified.
 
 <br>
 
-<input placeholder="Enter your name">
+<input id="guestName" placeholder="Enter your name">
 
 <br>
 
@@ -72,15 +86,18 @@ Kindly record your arrival so that society may properly be notified.
 Present Myself to Society
 </button>
 
+<h2 id="welcome"></h2>
+
+</div>
+
+
 <script src="./guests.js"></script>
 
 <script>
-alert("The announcement system is ready.");
-    
 
 function announceGuest(){
 
-    let name = document.querySelector("input").value.trim();
+    let name = document.getElementById("guestName").value.trim();
 
     let guest = window.guests[name];
 
@@ -88,19 +105,24 @@ function announceGuest(){
 
         document.getElementById("welcome").innerHTML =
         "🌹 Welcome " + guest.title +
-        "<br>Your society awaits:<br>" +
-        guest.society;
+        "<br>Your arrival has been recorded."
+        + "<br><br>You belong to:"
+        + "<br><strong>" + guest.society + "</strong>";
 
-    }
-
+    } 
+    
     else {
 
         document.getElementById("welcome").innerHTML =
-        "Kindly check the registry. Your name has not yet been recorded.";
+        "The registry does not yet recognize this guest.";
 
     }
 
 }
 
-
 </script>
+
+
+</body>
+
+</html>
