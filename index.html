@@ -77,6 +77,33 @@ Present Myself to Society
 </div>
 
 <script src="guests.js"></script>
+<script>
+
+function announceGuest(){
+
+let name = document.querySelector("input").value;
+
+let guest = guests[name];
+
+if(guest){
+
+document.getElementById("welcome").innerHTML =
+"Welcome " + guest.title + 
+"<br>Your society awaits:<br>" +
+guest.society;
+
+}
+
+else{
+
+document.getElementById("welcome").innerHTML =
+"Kindly check the registry. Your name has not yet been recorded.";
+
+}
+
+}
+
+</script>
     
 </body>
 </html>
