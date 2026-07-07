@@ -1,6 +1,4 @@
-alert("The Estate Registry has loaded!");
-
-const guests = {
+window.guests = {
     "Lydia": {
         title: "Miss Lydia",
         society: "Hartfield Society",
