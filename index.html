@@ -1466,7 +1466,6 @@ let resetTimer;
 
 
 
-
 function announceGuest(){
 
 
@@ -1486,32 +1485,24 @@ let resetLink =
 document.getElementById("resetLink");
 
 
-// audio elements
+// receiving bell
+
 let bell =
 document.getElementById("receivingBell");
-
-let announcement =
-document.getElementById("announcementAudio");
 
 
 
 if(guest){
 
 
-// play receiving bell
+// Play bell before announcement
 
-bell.currentTime = 0;
-bell.play();
+if(bell){
 
+    bell.currentTime = 0;
+    bell.play();
 
-// wait for bell, then play announcement
-
-setTimeout(function(){
-
-announcement.src = guest.audio;
-announcement.play();
-
-},1500);
+}
 
 
 
@@ -1604,20 +1595,6 @@ resetLink.style.display="block";
 
 
 }
-
-
-clearTimeout(resetTimer);
-
-
-
-resetTimer = setTimeout(resetRegistry,60000);
-
-
-
-}
-
-
-
 
 
 
