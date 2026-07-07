@@ -1,60 +1,63 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>The Frisbee Estate Registry</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Frisbee Estate Guest Ledger</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+body{
 
-
-body {
-
-    margin: 0;
-    min-height: 100vh;
+    margin:0;
+    min-height:100vh;
 
     background:
     linear-gradient(
-        rgba(245,235,210,0.85),
-        rgba(245,235,210,0.85)
+        rgba(241,232,208,.85),
+        rgba(241,232,208,.85)
     ),
     url("https://www.transparenttextures.com/patterns/old-wall.png");
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    font-family: 'Cormorant Garamond', serif;
+    font-family:'Cormorant Garamond', serif;
 
-    color: #31452f;
+    color:#3f3324;
 
 }
 
+.page{
 
-.page {
+    width:85%;
+    max-width:900px;
 
-    width: 85%;
-    max-width: 900px;
+    background:
+    linear-gradient(
+        rgba(255,250,238,.98),
+        rgba(248,241,223,.98)
+    );
 
-    background: #faf4df;
+    padding:70px;
 
-    border: 12px double #b08b45;
+    position:relative;
 
-    padding: 50px;
+    border:1px solid #b89b5e;
 
     box-shadow:
-    0 0 30px rgba(0,0,0,0.25);
-
-    text-align: center;
-
-    position: relative;
+    0 10px 35px rgba(0,0,0,.25);
 
 }
 
-
-.page:before {
+.page:before{
 
     content:"";
 
@@ -62,282 +65,329 @@ body {
 
     inset:15px;
 
-    border:2px solid #b08b45;
+    border:1px solid #b89b5e;
 
     pointer-events:none;
 
 }
 
+.page:after{
 
+    content:"";
 
-.crest {
+    position:absolute;
 
-    font-size:50px;
+    inset:30px;
 
-    color:#9a6b2f;
+    border:1px solid rgba(184,155,94,.5);
 
-}
-
-
-h1 {
-
-    font-size:65px;
-
-    margin:10px;
-
-    font-family:'Great Vibes', cursive;
-
-    color:#7b3535;
+    pointer-events:none;
 
 }
 
+.ornament{
 
-h2 {
-
-    font-size:35px;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-
-    margin-top:0;
-
-}
-
-
-
-.divider {
-
-    font-size:30px;
-
-    color:#b08b45;
-
-}
-
-
-
-p {
-
-    font-size:25px;
-
-    line-height:1.5;
-
-}
-
-
-
-input {
-
-    width:65%;
-
-    padding:18px;
-
-    margin-top:20px;
-
-    font-size:25px;
+    font-size:60px;
 
     text-align:center;
 
-    font-family:'Cormorant Garamond', serif;
-
-    background:#fffaf0;
-
-    border:
-
-    2px solid #b08b45;
+    color:#a88442;
 
 }
 
+.estate{
 
+    text-align:center;
 
-button {
+    text-transform:uppercase;
+
+    letter-spacing:6px;
+
+    font-size:28px;
+
+    margin-top:10px;
+
+    color:#5b4630;
+
+}
+
+.title{
+
+    text-align:center;
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:82px;
+
+    color:#6d3434;
+
+    margin:10px 0;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    font-size:26px;
+
+    font-style:italic;
+
+    margin-bottom:40px;
+
+}
+
+.divider{
+
+    text-align:center;
+
+    font-size:32px;
+
+    color:#a88442;
+
+    margin:25px 0;
+
+}
+
+.message{
+
+    text-align:center;
+
+    font-size:30px;
+
+    line-height:1.6;
+
+}
+
+.note{
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-style:italic;
 
     margin-top:25px;
 
-    padding:18px 45px;
+}
 
-    font-size:25px;
+.signature-line{
+
+    margin-top:45px;
+
+    text-align:center;
+
+}
+
+.signature-label{
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+}
+
+input{
+
+    width:60%;
+
+    border:none;
+
+    border-bottom:2px solid #9b7a46;
+
+    background:transparent;
+
+    padding:12px;
+
+    text-align:center;
+
+    font-size:32px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    color:#3f3324;
+
+    outline:none;
+
+}
+
+input::placeholder{
+
+    color:#8c7b61;
+
+    font-style:italic;
+
+}
+
+button{
+
+    margin-top:35px;
+
+    padding:18px 50px;
+
+    font-size:24px;
 
     font-family:'Cormorant Garamond', serif;
 
     letter-spacing:2px;
 
-    color:#faf4df;
+    background:#6d3434;
 
-    background:#31452f;
+    color:#f8f0dd;
 
-    border:
-
-    3px solid #b08b45;
+    border:1px solid #b89b5e;
 
     cursor:pointer;
 
-}
-
-
-
-button:hover {
-
-    background:#7b3535;
+    transition:.3s;
 
 }
 
+button:hover{
 
+    background:#31452f;
 
-#welcome {
+}
 
-    margin-top:35px;
+#welcome{
+
+    margin-top:45px;
+
+    text-align:center;
 
     font-size:30px;
 
+    line-height:1.5;
+
+    color:#6d3434;
+
 }
 
+.quote{
 
+    margin-top:50px;
 
-.small {
+    text-align:center;
 
     font-style:italic;
 
-    font-size:22px;
+    font-size:20px;
+
+    color:#6c5a45;
 
 }
-
 
 </style>
 
 </head>
 
-
-
 <body>
-
 
 <div class="page">
 
-
-<div class="crest">
-
+<div class="ornament">
 ❦
-
 </div>
 
-
-<h2>
+<div class="estate">
 The Frisbee Estate
-</h2>
+</div>
 
+<div class="title">
+Book of Distinguished Visitors
+</div>
 
-<h1>
-Guest Registry
-</h1>
-
+<div class="subtitle">
+Anno Domini 2026
+</div>
 
 <div class="divider">
 ❧ ❧ ❧
 </div>
 
-
-<p>
+<div class="message">
 Welcome, dear guest.
-<br>
-Your arrival is most important to us,
-<br>
-and society awaits with great anticipation.
-</p>
+<br><br>
+The household eagerly awaits your arrival,
+and society has spoken of little else.
+</div>
 
+<div class="note">
+Kindly inscribe your name upon the ledger so that you may be properly received.
+</div>
 
+<div class="signature-line">
 
-<p class="small">
+<div class="signature-label">
+Your Name
+</div>
 
-Kindly announce your arrival so that the household may properly receive you.
-
-</p>
-
-
-
-<input 
+<input
 id="guestName"
-placeholder="Enter your name"
+placeholder="Sign the Ledger"
 >
 
-
 <br>
 
-
 <button onclick="announceGuest()">
-
-Present Myself to Society
-
+Announce My Arrival
 </button>
-
-
-
-<h2 id="welcome"></h2>
-
-
 
 </div>
 
+<div id="welcome"></div>
 
+<div class="quote">
+"There is no charm equal to tenderness of heart."
+<br>
+— Jane Austen
+</div>
+
+</div>
 
 <script src="guest.js"></script>
 
-
 <script>
-
 
 function announceGuest(){
 
+    let name =
+    document.getElementById("guestName").value.trim();
 
-let name =
-document.getElementById("guestName").value.trim();
+    let guest =
+    window.guests[name];
 
+    if(guest){
 
+        document.getElementById("welcome").innerHTML =
 
-let guest =
-window.guests[name];
+        "❦ Welcome " + guest.title +
 
+        "<br><br>"
 
+        + "Your presence has been entered into the household register."
 
-if(guest){
+        + "<br><br>"
 
+        + "You are a member of"
 
-document.getElementById("welcome").innerHTML =
+        + "<br><strong>" + guest.society + "</strong>";
 
-"🌹 Welcome " + guest.title +
+    }
 
-"<br><br>Your arrival has been recorded."
+    else{
 
-+
+        document.getElementById("welcome").innerHTML =
 
-"<br><br>You belong to:"
-+
+        "The ledger does not yet recognize this visitor.";
 
-"<br><strong>" + guest.society + "</strong>";
-
-
-
-}
-
-
-else{
-
-
-document.getElementById("welcome").innerHTML =
-
-"The registry does not yet recognize this guest.";
-
+    }
 
 }
-
-
-}
-
 
 </script>
 
-
-
 </body>
-
 </html>
+```
+
