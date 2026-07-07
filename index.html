@@ -1,393 +1,641 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Frisbee Estate</title>
 
-<title>The Frisbee Estate Guest Ledger</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
+
+*{
+    box-sizing:border-box;
+}
+
 
 body{
 
     margin:0;
+
     min-height:100vh;
 
-    background:
-    linear-gradient(
-        rgba(241,232,208,.85),
-        rgba(241,232,208,.85)
-    ),
-    url("https://www.transparenttextures.com/patterns/old-wall.png");
+    padding:60px 0;
 
     display:flex;
+
     justify-content:center;
-    align-items:center;
+
+    align-items:flex-start;
+
+
+    background:
+
+    linear-gradient(
+        rgba(235,220,188,.88),
+        rgba(235,220,188,.88)
+    ),
+
+    url("https://www.transparenttextures.com/patterns/old-wall.png");
+
 
     font-family:'Cormorant Garamond', serif;
 
-    color:#3f3324;
+    color:#3d3022;
 
 }
+
+
+
+/* parchment */
 
 .page{
 
-    width:85%;
-    max-width:900px;
 
-    background:
-    linear-gradient(
-        rgba(255,250,238,.98),
-        rgba(248,241,223,.98)
-    );
+    width:850px;
 
-    padding:70px;
+    max-width:90%;
+
 
     position:relative;
 
-    border:1px solid #b89b5e;
+
+    padding:80px 90px;
+
+
+    background:
+
+    radial-gradient(
+        rgba(120,90,50,.06) 1px,
+        transparent 1px
+    ),
+
+    #f8efd8;
+
+
+    background-size:10px 10px;
+
+
+    border:3px double #b18a45;
+
 
     box-shadow:
-    0 10px 35px rgba(0,0,0,.25);
+
+    0 20px 45px rgba(0,0,0,.3);
+
+
 
 }
+
+
+
+/* inner engraved borders */
 
 .page:before{
 
+
     content:"";
 
     position:absolute;
 
-    inset:15px;
+    inset:18px;
 
-    border:1px solid #b89b5e;
 
-    pointer-events:none;
+    border:1px solid #b18a45;
+
 
 }
+
+
 
 .page:after{
 
+
     content:"";
+
 
     position:absolute;
 
-    inset:30px;
+    inset:27px;
 
-    border:1px solid rgba(184,155,94,.5);
 
-    pointer-events:none;
+    border:1px solid rgba(177,138,69,.5);
+
 
 }
 
-.ornament{
 
-    font-size:60px;
+
+/* corners */
+
+.corner{
+
+
+    position:absolute;
+
+    font-size:55px;
+
+    color:#927039;
+
+}
+
+
+.top-left{
+
+    top:25px;
+
+    left:35px;
+
+}
+
+
+.top-right{
+
+    top:25px;
+
+    right:35px;
+
+}
+
+
+.bottom-left{
+
+    bottom:25px;
+
+    left:35px;
+
+}
+
+
+.bottom-right{
+
+    bottom:25px;
+
+    right:35px;
+
+}
+
+
+
+/* content */
+
+
+.content{
+
+    position:relative;
+
+    z-index:2;
 
     text-align:center;
 
-    color:#a88442;
+}
+
+
+
+.crest{
+
+
+    font-size:55px;
+
+    color:#927039;
+
+    margin-bottom:15px;
+
 
 }
+
+
 
 .estate{
 
-    text-align:center;
+
+    font-size:30px;
+
+    letter-spacing:8px;
 
     text-transform:uppercase;
 
-    letter-spacing:6px;
+    color:#55402c;
 
-    font-size:28px;
-
-    margin-top:10px;
-
-    color:#5b4630;
 
 }
+
+
 
 .title{
 
-    text-align:center;
 
     font-family:'Great Vibes', cursive;
 
-    font-size:82px;
+    font-size:90px;
 
-    color:#6d3434;
+    font-weight:400;
 
-    margin:10px 0;
+    color:#713535;
+
+    margin:15px 0;
+
 
 }
+
+
 
 .subtitle{
 
-    text-align:center;
 
-    font-size:26px;
+    font-size:30px;
 
     font-style:italic;
 
-    margin-bottom:40px;
+    letter-spacing:2px;
+
 
 }
+
+
 
 .divider{
 
-    text-align:center;
 
-    font-size:32px;
+    margin:30px;
 
-    color:#a88442;
+    font-size:30px;
 
-    margin:25px 0;
+    color:#b18a45;
+
 
 }
 
+
+
 .message{
 
-    text-align:center;
 
-    font-size:30px;
+    font-size:29px;
 
     line-height:1.6;
 
 }
 
+
+
 .note{
 
-    text-align:center;
 
-    font-size:22px;
-
-    font-style:italic;
-
-    margin-top:25px;
-
-}
-
-.signature-line{
-
-    margin-top:45px;
-
-    text-align:center;
-
-}
-
-.signature-label{
+    margin-top:30px;
 
     font-size:24px;
 
-    margin-bottom:10px;
+    font-style:italic;
 
 }
+
+
+
+.signature{
+
+
+    margin-top:45px;
+
+}
+
+
+
+.signature-title{
+
+
+    font-size:24px;
+
+}
+
+
 
 input{
 
-    width:60%;
 
-    border:none;
+    width:65%;
 
-    border-bottom:2px solid #9b7a46;
 
     background:transparent;
 
+
+    border:none;
+
+    border-bottom:
+
+    2px solid #96733e;
+
+
     padding:12px;
+
+
+    font-family:'Great Vibes', cursive;
+
+
+    font-size:45px;
+
 
     text-align:center;
 
-    font-size:32px;
 
-    font-family:'Cormorant Garamond', serif;
+    color:#4a3828;
 
-    color:#3f3324;
 
     outline:none;
 
+
 }
+
+
 
 input::placeholder{
 
-    color:#8c7b61;
 
-    font-style:italic;
+    color:#9b8461;
+
 
 }
+
+
 
 button{
 
+
     margin-top:35px;
 
-    padding:18px 50px;
 
-    font-size:24px;
+    padding:15px 45px;
+
 
     font-family:'Cormorant Garamond', serif;
 
+
+    font-size:24px;
+
+
     letter-spacing:2px;
 
-    background:#6d3434;
 
-    color:#f8f0dd;
+    background:#713535;
 
-    border:1px solid #b89b5e;
+
+    color:#fff5dc;
+
+
+    border:2px solid #b18a45;
+
 
     cursor:pointer;
 
-    transition:.3s;
+
+    box-shadow:
+
+    0 5px 12px rgba(0,0,0,.2);
+
 
 }
+
+
 
 button:hover{
 
+
     background:#31452f;
 
+
 }
+
+
 
 #welcome{
 
+
     margin-top:45px;
 
-    text-align:center;
 
-    font-size:30px;
+    font-size:35px;
+
 
     line-height:1.5;
 
-    color:#6d3434;
+
+    color:#713535;
+
 
 }
+
+
 
 .quote{
 
-    margin-top:50px;
 
-    text-align:center;
+    margin-top:55px;
+
+
+    font-size:21px;
+
 
     font-style:italic;
 
-    font-size:20px;
 
-    color:#6c5a45;
+    color:#6d5a42;
+
 
 }
 
+
+
 </style>
+
 
 </head>
 
+
+
 <body>
+
+
 
 <div class="page">
 
-<div class="ornament">
-❦
+
+<div class="corner top-left">❦</div>
+
+<div class="corner top-right">⚜</div>
+
+<div class="corner bottom-left">⚜</div>
+
+<div class="corner bottom-right">❦</div>
+
+
+
+<div class="content">
+
+
+
+<div class="crest">
+⚜
 </div>
+
 
 <div class="estate">
 The Frisbee Estate
 </div>
 
+
 <div class="title">
-Book of Distinguished Visitors
+Registry of Esteemed Guests
 </div>
 
+
 <div class="subtitle">
-Anno Domini 2026
+In Celebration of an Afternoon Tea
 </div>
+
+
 
 <div class="divider">
 ❧ ❧ ❧
 </div>
 
+
+
 <div class="message">
-Welcome, dear guest.
+
+Welcome to the Frisbee Estate.
+
 <br><br>
-The household eagerly awaits your arrival,
-and society has spoken of little else.
+
+The family is delighted by your visit and eagerly anticipates the pleasure of your company this afternoon.
+
 </div>
+
+
 
 <div class="note">
-Kindly inscribe your name upon the ledger so that you may be properly received.
+
+Kindly inscribe your name below so that your arrival may be properly announced.
+
 </div>
 
-<div class="signature-line">
 
-<div class="signature-label">
-Your Name
+
+<div class="signature">
+
+<div class="signature-title">
+Your Most Honored Name
 </div>
 
-<input
+
+<input 
 id="guestName"
-placeholder="Sign the Ledger"
+placeholder="Write your name..."
 >
+
 
 <br>
 
+
 <button onclick="announceGuest()">
-Announce My Arrival
+
+✦ Announce My Arrival ✦
+
 </button>
 
+
 </div>
+
+
 
 <div id="welcome"></div>
 
+
+
 <div class="quote">
+
 "There is no charm equal to tenderness of heart."
+
 <br>
+
 — Jane Austen
-</div>
 
 </div>
+
+
+
+</div>
+
+
+</div>
+
+
 
 <script src="guest.js"></script>
 
+
 <script>
+
 
 function announceGuest(){
 
-    let name =
-    document.getElementById("guestName").value.trim();
 
-    let guest =
-    window.guests[name];
+let name =
+document.getElementById("guestName").value.trim();
 
-    if(guest){
 
-        document.getElementById("welcome").innerHTML =
 
-        "❦ Welcome " + guest.title +
+let guest =
+window.guests[name];
 
-        "<br><br>"
 
-        + "Your presence has been entered into the household register."
 
-        + "<br><br>"
+if(guest){
 
-        + "You are a member of"
 
-        + "<br><strong>" + guest.society + "</strong>";
+document.getElementById("welcome").innerHTML =
 
-    }
 
-    else{
+"❦ Welcome " + guest.title +
 
-        document.getElementById("welcome").innerHTML =
 
-        "The ledger does not yet recognize this visitor.";
+"<br><br>Your presence has been entered into the household registry."
 
-    }
+
++
+
+"<br><br>You are welcomed among:"
+
+
++
+
+"<br><strong>" + guest.society + "</strong>";
+
+
 
 }
 
+else{
+
+
+document.getElementById("welcome").innerHTML =
+
+"The registry does not yet recognize this guest.";
+
+
+}
+
+
+
+}
+
+
 </script>
 
+
+
 </body>
+
 </html>
-```
 
