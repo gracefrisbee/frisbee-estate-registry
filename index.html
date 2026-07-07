@@ -72,40 +72,32 @@ Kindly record your arrival so that society may properly be notified.
 Present Myself to Society
 </button>
 
-<h2 id="welcome"></h2>
+<script src="./guests.js"></script>
 
-</div>
-
-<script src="guests.js"></script>
 <script>
 
 function announceGuest(){
 
-let name = document.querySelector("input").value;
+    let name = document.querySelector("input").value.trim();
 
-let guest = guests[name];
+    let guest = guests[name];
 
-if(guest){
+    if (guest) {
 
-document.getElementById("welcome").innerHTML =
-"Welcome " + guest.title + 
-"<br>Your society awaits:<br>" +
-guest.society;
+        document.getElementById("welcome").innerHTML =
+        "🌹 Welcome " + guest.title +
+        "<br>Your society awaits:<br>" +
+        guest.society;
 
-}
-
-else{
-
-document.getElementById("welcome").innerHTML =
-"Kindly check the registry. Your name has not yet been recorded.";
-
-}
-
-}
-function testFunction(){
-    alert("The registry button works!");
-}
-</script>
+    } 
     
-</body>
-</html>
+    else {
+
+        document.getElementById("welcome").innerHTML =
+        "Kindly check the registry. Your name has not yet been recorded.";
+
+    }
+
+}
+
+</script>
