@@ -4,107 +4,113 @@
 <head>
 
 <meta charset="UTF-8">
+
 <title>The Frisbee Estate</title>
+
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 
 <style>
 
+
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
+
 
 
 body{
 
-    margin:0;
+margin:0;
 
-    min-height:100vh;
+min-height:100vh;
 
-    padding:60px 0;
+padding:50px 0;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:flex-start;
-
-
-    background:
-
-    linear-gradient(
-        rgba(235,220,188,.88),
-        rgba(235,220,188,.88)
-    ),
-
-    url("https://www.transparenttextures.com/patterns/old-wall.png");
+align-items:flex-start;
 
 
-    font-family:'Cormorant Garamond', serif;
+background:
 
-    color:#3d3022;
+linear-gradient(
+rgba(235,220,188,.88),
+rgba(235,220,188,.88)
+),
+
+url("https://www.transparenttextures.com/patterns/old-wall.png");
+
+
+font-family:'Cormorant Garamond', serif;
+
+color:#3d3022;
 
 }
 
 
 
-/* parchment */
+/* parchment paper */
 
 .page{
 
+width:850px;
 
-    width:850px;
-
-    max-width:90%;
-
-
-    position:relative;
+max-width:90%;
 
 
-    padding:80px 90px;
+position:relative;
 
 
-    background:
-
-    radial-gradient(
-        rgba(120,90,50,.06) 1px,
-        transparent 1px
-    ),
-
-    #f8efd8;
+padding:80px 90px;
 
 
-    background-size:10px 10px;
+background:
+
+radial-gradient(
+rgba(120,90,50,.07) 1px,
+transparent 1px
+),
+
+linear-gradient(
+rgba(248,239,216,.96),
+rgba(248,239,216,.96)
+);
 
 
-    border:3px double #b18a45;
+background-size:10px 10px;
 
 
-    box-shadow:
+border:3px double #b18a45;
 
-    0 20px 45px rgba(0,0,0,.3);
 
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.3);
+
+
+overflow:hidden;
 
 
 }
 
 
 
-/* inner engraved borders */
+/* engraved borders */
+
 
 .page:before{
 
+content:"";
 
-    content:"";
+position:absolute;
 
-    position:absolute;
+inset:18px;
 
-    inset:18px;
-
-
-    border:1px solid #b18a45;
-
+border:1px solid #b18a45;
 
 }
 
@@ -112,83 +118,231 @@ body{
 
 .page:after{
 
+content:"";
 
-    content:"";
+position:absolute;
+
+inset:28px;
+
+border:1px solid rgba(177,138,69,.45);
+
+}
 
 
-    position:absolute;
 
-    inset:27px;
+/* roses behind parchment */
 
 
-    border:1px solid rgba(177,138,69,.5);
+.rose{
+
+position:absolute;
+
+width:300px;
+
+height:300px;
+
+background-size:contain;
+
+background-repeat:no-repeat;
+
+opacity:.12;
+
+filter:
+
+sepia(80%)
+
+grayscale(40%);
+
+pointer-events:none;
+
+z-index:0;
+
+}
+
+
+
+.rose-left{
+
+bottom:-50px;
+
+left:-70px;
+
+
+background-image:url(
+"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Rosa_centifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-018.jpg/512px-Rosa_centifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-018.jpg"
+);
 
 
 }
 
 
 
-/* corners */
+.rose-right{
 
-.corner{
+top:-50px;
 
+right:-70px;
 
-    position:absolute;
-
-    font-size:55px;
-
-    color:#927039;
-
-}
+transform:rotate(180deg);
 
 
-.top-left{
+background-image:url(
+"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Rosa_centifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-018.jpg/512px-Rosa_centifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-018.jpg"
+);
 
-    top:25px;
-
-    left:35px;
-
-}
-
-
-.top-right{
-
-    top:25px;
-
-    right:35px;
-
-}
-
-
-.bottom-left{
-
-    bottom:25px;
-
-    left:35px;
-
-}
-
-
-.bottom-right{
-
-    bottom:25px;
-
-    right:35px;
 
 }
 
 
 
-/* content */
+
+/* corner ornaments */
+
+
+.ornate-corner{
+
+position:absolute;
+
+width:65px;
+
+height:65px;
+
+border-color:#b18a45;
+
+z-index:3;
+
+}
+
+
+
+.corner1{
+
+top:25px;
+
+left:25px;
+
+border-top:2px solid;
+
+border-left:2px solid;
+
+}
+
+
+
+.corner2{
+
+top:25px;
+
+right:25px;
+
+border-top:2px solid;
+
+border-right:2px solid;
+
+}
+
+
+
+.corner3{
+
+bottom:25px;
+
+left:25px;
+
+border-bottom:2px solid;
+
+border-left:2px solid;
+
+}
+
+
+
+.corner4{
+
+bottom:25px;
+
+right:25px;
+
+border-bottom:2px solid;
+
+border-right:2px solid;
+
+}
+
+
+
+.ornate-corner:after{
+
+content:"❦";
+
+position:absolute;
+
+font-size:35px;
+
+color:#b18a45;
+
+}
+
+
+
+.corner1:after{
+
+top:8px;
+
+left:12px;
+
+}
+
+
+
+.corner2:after{
+
+top:8px;
+
+right:12px;
+
+transform:scaleX(-1);
+
+}
+
+
+
+.corner3:after{
+
+bottom:8px;
+
+left:12px;
+
+transform:rotate(180deg);
+
+}
+
+
+
+.corner4:after{
+
+bottom:8px;
+
+right:12px;
+
+transform:rotate(180deg) scaleX(-1);
+
+}
+
+
+
+
+
+/* main content */
 
 
 .content{
 
-    position:relative;
+position:relative;
 
-    z-index:2;
+z-index:2;
 
-    text-align:center;
+text-align:center;
 
 }
 
@@ -196,13 +350,13 @@ body{
 
 .crest{
 
+font-size:65px;
 
-    font-size:55px;
+color:#b18a45;
 
-    color:#927039;
+text-shadow:1px 1px #80602d;
 
-    margin-bottom:15px;
-
+margin-bottom:10px;
 
 }
 
@@ -210,15 +364,13 @@ body{
 
 .estate{
 
+font-size:27px;
 
-    font-size:30px;
+letter-spacing:8px;
 
-    letter-spacing:8px;
+text-transform:uppercase;
 
-    text-transform:uppercase;
-
-    color:#55402c;
-
+color:#55402c;
 
 }
 
@@ -226,17 +378,17 @@ body{
 
 .title{
 
+font-family:'Great Vibes', cursive;
 
-    font-family:'Great Vibes', cursive;
+font-size:68px;
 
-    font-size:90px;
+font-weight:400;
 
-    font-weight:400;
+color:#713535;
 
-    color:#713535;
+margin:15px 0;
 
-    margin:15px 0;
-
+letter-spacing:1px;
 
 }
 
@@ -244,13 +396,11 @@ body{
 
 .subtitle{
 
+font-size:30px;
 
-    font-size:30px;
+font-style:italic;
 
-    font-style:italic;
-
-    letter-spacing:2px;
-
+letter-spacing:2px;
 
 }
 
@@ -258,13 +408,11 @@ body{
 
 .divider{
 
+margin:30px;
 
-    margin:30px;
+font-size:30px;
 
-    font-size:30px;
-
-    color:#b18a45;
-
+color:#b18a45;
 
 }
 
@@ -272,10 +420,9 @@ body{
 
 .message{
 
+font-size:29px;
 
-    font-size:29px;
-
-    line-height:1.6;
+line-height:1.6;
 
 }
 
@@ -283,12 +430,11 @@ body{
 
 .note{
 
+margin-top:30px;
 
-    margin-top:30px;
+font-size:24px;
 
-    font-size:24px;
-
-    font-style:italic;
+font-style:italic;
 
 }
 
@@ -296,8 +442,7 @@ body{
 
 .signature{
 
-
-    margin-top:45px;
+margin-top:45px;
 
 }
 
@@ -305,8 +450,7 @@ body{
 
 .signature-title{
 
-
-    font-size:24px;
+font-size:24px;
 
 }
 
@@ -314,37 +458,25 @@ body{
 
 input{
 
+width:65%;
 
-    width:65%;
+background:transparent;
 
+border:none;
 
-    background:transparent;
+border-bottom:2px solid #96733e;
 
+padding:12px;
 
-    border:none;
+font-family:'Great Vibes', cursive;
 
-    border-bottom:
+font-size:45px;
 
-    2px solid #96733e;
+text-align:center;
 
+color:#4a3828;
 
-    padding:12px;
-
-
-    font-family:'Great Vibes', cursive;
-
-
-    font-size:45px;
-
-
-    text-align:center;
-
-
-    color:#4a3828;
-
-
-    outline:none;
-
+outline:none;
 
 }
 
@@ -352,9 +484,7 @@ input{
 
 input::placeholder{
 
-
-    color:#9b8461;
-
+color:#9b8461;
 
 }
 
@@ -362,38 +492,25 @@ input::placeholder{
 
 button{
 
+margin-top:35px;
 
-    margin-top:35px;
+padding:15px 45px;
 
+font-family:'Cormorant Garamond', serif;
 
-    padding:15px 45px;
+font-size:24px;
 
+letter-spacing:2px;
 
-    font-family:'Cormorant Garamond', serif;
+background:#713535;
 
+color:#fff5dc;
 
-    font-size:24px;
+border:2px solid #b18a45;
 
+cursor:pointer;
 
-    letter-spacing:2px;
-
-
-    background:#713535;
-
-
-    color:#fff5dc;
-
-
-    border:2px solid #b18a45;
-
-
-    cursor:pointer;
-
-
-    box-shadow:
-
-    0 5px 12px rgba(0,0,0,.2);
-
+box-shadow:0 5px 12px rgba(0,0,0,.2);
 
 }
 
@@ -401,9 +518,7 @@ button{
 
 button:hover{
 
-
-    background:#31452f;
-
+background:#31452f;
 
 }
 
@@ -411,18 +526,13 @@ button:hover{
 
 #welcome{
 
+margin-top:45px;
 
-    margin-top:45px;
+font-size:35px;
 
+line-height:1.5;
 
-    font-size:35px;
-
-
-    line-height:1.5;
-
-
-    color:#713535;
-
+color:#713535;
 
 }
 
@@ -430,25 +540,19 @@ button:hover{
 
 .quote{
 
+margin-top:55px;
 
-    margin-top:55px;
+font-size:21px;
 
+font-style:italic;
 
-    font-size:21px;
-
-
-    font-style:italic;
-
-
-    color:#6d5a42;
-
+color:#6d5a42;
 
 }
 
 
 
 </style>
-
 
 </head>
 
@@ -457,22 +561,26 @@ button:hover{
 <body>
 
 
-
 <div class="page">
 
 
-<div class="corner top-left">❦</div>
+<div class="rose rose-left"></div>
 
-<div class="corner top-right">⚜</div>
+<div class="rose rose-right"></div>
 
-<div class="corner bottom-left">⚜</div>
 
-<div class="corner bottom-right">❦</div>
+
+<div class="ornate-corner corner1"></div>
+
+<div class="ornate-corner corner2"></div>
+
+<div class="ornate-corner corner3"></div>
+
+<div class="ornate-corner corner4"></div>
 
 
 
 <div class="content">
-
 
 
 <div class="crest">
@@ -480,14 +588,17 @@ button:hover{
 </div>
 
 
+
 <div class="estate">
 The Frisbee Estate
 </div>
 
 
+
 <div class="title">
 Registry of Esteemed Guests
 </div>
+
 
 
 <div class="subtitle">
@@ -524,9 +635,11 @@ Kindly inscribe your name below so that your arrival may be properly announced.
 
 <div class="signature">
 
+
 <div class="signature-title">
 Your Most Honored Name
 </div>
+
 
 
 <input 
@@ -535,7 +648,9 @@ placeholder="Write your name..."
 >
 
 
+
 <br>
+
 
 
 <button onclick="announceGuest()">
@@ -545,11 +660,14 @@ placeholder="Write your name..."
 </button>
 
 
+
 </div>
 
 
 
+
 <div id="welcome"></div>
+
 
 
 
@@ -572,11 +690,12 @@ placeholder="Write your name..."
 
 
 
+
 <script src="guest.js"></script>
 
 
-<script>
 
+<script>
 
 function announceGuest(){
 
@@ -602,11 +721,9 @@ document.getElementById("welcome").innerHTML =
 
 "<br><br>Your presence has been entered into the household registry."
 
-
 +
 
 "<br><br>You are welcomed among:"
-
 
 +
 
