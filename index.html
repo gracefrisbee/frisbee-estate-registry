@@ -80,11 +80,25 @@ alert("The announcement system is ready.");
 
 function announceGuest(){
 
-    alert("The button called the function!");
+    let name = document.querySelector("input").value.trim();
 
-    let name = document.querySelector("input").value;
+    let guest = window.guests[name];
 
-    alert("You entered: " + name);
+    if (guest) {
+
+        document.getElementById("welcome").innerHTML =
+        "🌹 Welcome " + guest.title +
+        "<br>Your society awaits:<br>" +
+        guest.society;
+
+    }
+
+    else {
+
+        document.getElementById("welcome").innerHTML =
+        "Kindly check the registry. Your name has not yet been recorded.";
+
+    }
 
 }
 
