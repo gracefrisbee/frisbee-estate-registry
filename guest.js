@@ -5,4 +5,3 @@ window.guests = {
     }
 };
 
-alert("Guest database loaded!");
