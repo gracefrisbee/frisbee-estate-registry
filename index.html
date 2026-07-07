@@ -77,28 +77,16 @@ Present Myself to Society
 <script>
 alert("The announcement system is ready.");
     
+
 function announceGuest(){
 
-    let name = document.querySelector("input").value.trim();
+    alert("The button called the function!");
 
-    let guest = guests[name];
+    let name = document.querySelector("input").value;
 
-    if (guest) {
-
-        document.getElementById("welcome").innerHTML =
-        "🌹 Welcome " + guest.title +
-        "<br>Your society awaits:<br>" +
-        guest.society;
-
-    } 
-    
-    else {
-
-        document.getElementById("welcome").innerHTML =
-        "Kindly check the registry. Your name has not yet been recorded.";
-
-    }
+    alert("You entered: " + name);
 
 }
+
 
 </script>
