@@ -1,3 +1,5 @@
+alert("The Estate Registry has loaded!");
+
 const guests = {
     "Lydia": {
         title: "Miss Lydia",
