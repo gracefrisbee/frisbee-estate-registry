@@ -7,14 +7,17 @@
 
 <title>The Frisbee Estate</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 
 <style>
 
+
 *{
 box-sizing:border-box;
 }
+
 
 
 body{
@@ -35,8 +38,8 @@ align-items:flex-start;
 background:
 
 linear-gradient(
-rgba(235,220,188,.88),
-rgba(235,220,188,.88)
+rgba(235,220,188,.9),
+rgba(235,220,188,.9)
 ),
 
 url("https://www.transparenttextures.com/patterns/old-wall.png");
@@ -49,6 +52,7 @@ color:#3d3022;
 }
 
 
+
 /* parchment invitation */
 
 .page{
@@ -57,7 +61,9 @@ width:850px;
 
 max-width:90%;
 
+
 position:relative;
+
 
 padding:80px 90px;
 
@@ -70,9 +76,10 @@ transparent 1px
 ),
 
 linear-gradient(
-rgba(248,239,216,.96),
-rgba(248,239,216,.96)
+rgba(248,239,216,.97),
+rgba(248,239,216,.97)
 );
+
 
 
 background-size:10px 10px;
@@ -88,16 +95,19 @@ box-shadow:
 0 0 60px rgba(216,170,80,.18);
 
 
+
 overflow:hidden;
 
 
 animation:
 
-unfold 2s ease-out forwards;
+unfold 1.8s ease-out forwards;
+
 
 transform-origin:center top;
 
 opacity:0;
+
 
 }
 
@@ -116,18 +126,18 @@ scaleY(.85)
 
 translateY(-40px);
 
+
 filter:blur(4px);
+
 
 }
 
 
-
-50%{
+60%{
 
 opacity:1;
 
 }
-
 
 
 100%{
@@ -140,14 +150,20 @@ scaleY(1)
 
 translateY(0);
 
+
 filter:blur(0);
 
-}
-
 
 }
 
 
+}
+
+
+
+
+
+/* engraved borders */
 
 
 .page:before{
@@ -158,7 +174,9 @@ position:absolute;
 
 inset:18px;
 
+
 border:1px solid #b18a45;
+
 
 }
 
@@ -172,140 +190,183 @@ position:absolute;
 
 inset:28px;
 
+
 border:1px solid rgba(177,138,69,.45);
+
 
 }
 
 
 
-/* rose watermark */
 
-.rose{
+/* Victorian botanical illustrations */
+
+
+.botanical{
 
 position:absolute;
 
-width:300px;
+width:330px;
 
-height:300px;
+height:330px;
+
 
 background-size:contain;
 
 background-repeat:no-repeat;
 
-opacity:.12;
+
+opacity:.10;
+
 
 filter:
 
 sepia(80%)
 
-grayscale(40%);
+grayscale(100%);
+
 
 pointer-events:none;
 
 z-index:0;
 
+
 }
 
 
 
-.rose-left{
 
-bottom:-50px;
+.botanical-top{
 
-left:-70px;
+
+top:-40px;
+
+right:-40px;
 
 
 background-image:url(
-"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Rosa_centifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-018.jpg/512px-Rosa_centifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-018.jpg"
+"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Rosa_alba_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-015.jpg/512px-Rosa_alba_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-015.jpg"
 );
+
 
 
 }
 
 
-.rose-right{
 
-top:-50px;
+.botanical-bottom{
 
-right:-70px;
+
+bottom:-60px;
+
+left:-60px;
+
 
 transform:rotate(180deg);
 
 
 background-image:url(
-"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Rosa_centifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-018.jpg/512px-Rosa_centifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-018.jpg"
+"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Rosa_alba_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-015.jpg/512px-Rosa_alba_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-015.jpg"
 );
 
 
+
 }
 
 
 
-/* corners */
+
+
+
+/* corner decorations */
+
 
 .ornate-corner{
 
+
 position:absolute;
+
 
 width:65px;
 
+
 height:65px;
+
 
 border-color:#b18a45;
 
+
 z-index:3;
 
+
 }
+
+
 
 
 .corner1{
 
+
 top:25px;
 
 left:25px;
+
 
 border-top:2px solid;
 
 border-left:2px solid;
 
+
 }
+
 
 
 .corner2{
 
+
 top:25px;
 
 right:25px;
+
 
 border-top:2px solid;
 
 border-right:2px solid;
 
+
 }
 
 
+
 .corner3{
+
 
 bottom:25px;
 
 left:25px;
 
+
 border-bottom:2px solid;
 
 border-left:2px solid;
 
+
 }
 
 
+
 .corner4{
+
 
 bottom:25px;
 
 right:25px;
 
+
 border-bottom:2px solid;
 
 border-right:2px solid;
+
 
 }
 
@@ -313,15 +374,21 @@ border-right:2px solid;
 
 .ornate-corner:after{
 
+
 content:"❦";
+
 
 position:absolute;
 
+
 font-size:35px;
+
 
 color:#b18a45;
 
+
 }
+
 
 
 .corner1:after{
@@ -330,70 +397,99 @@ top:8px;
 
 left:12px;
 
+
 }
 
 
+
 .corner2:after{
+
 
 top:8px;
 
 right:12px;
 
+
 transform:scaleX(-1);
+
 
 }
 
 
+
 .corner3:after{
+
 
 bottom:8px;
 
 left:12px;
 
+
 transform:rotate(180deg);
+
 
 }
 
 
+
 .corner4:after{
+
 
 bottom:8px;
 
 right:12px;
 
+
 transform:rotate(180deg) scaleX(-1);
 
+
 }
+
+
 
 
 
 /* content */
 
+
 .content{
+
 
 position:relative;
 
+
 z-index:2;
 
+
 text-align:center;
+
 
 }
 
 
+
+
+
 .crest{
+
 
 font-size:65px;
 
+
 color:#b18a45;
 
+
 text-shadow:1px 1px #80602d;
+
 
 margin-bottom:10px;
 
 
+
 animation:
 
-fadeIn 3s ease forwards;
+fadeIn 2.5s ease forwards;
+
 
 }
 
@@ -408,6 +504,7 @@ opacity:0;
 
 transform:translateY(-15px);
 
+
 }
 
 
@@ -417,22 +514,30 @@ opacity:1;
 
 transform:translateY(0);
 
+
 }
 
 
 }
+
+
 
 
 
 .estate{
 
+
 font-size:27px;
+
 
 letter-spacing:8px;
 
+
 text-transform:uppercase;
 
+
 color:#55402c;
+
 
 }
 
@@ -440,29 +545,60 @@ color:#55402c;
 
 .title{
 
+
 font-family:'Great Vibes', cursive;
+
 
 font-size:68px;
 
+
 font-weight:400;
+
 
 color:#713535;
 
+
 margin:15px 0;
 
+
 letter-spacing:1px;
+
 
 }
 
 
 
+
 .subtitle{
+
 
 font-size:30px;
 
+
 font-style:italic;
 
+
 letter-spacing:2px;
+
+
+}
+
+
+
+.date{
+
+
+margin-top:15px;
+
+
+font-size:22px;
+
+
+letter-spacing:2px;
+
+
+color:#6d5a42;
+
 
 }
 
@@ -470,11 +606,15 @@ letter-spacing:2px;
 
 .divider{
 
+
 margin:30px;
+
 
 font-size:30px;
 
+
 color:#b18a45;
+
 
 }
 .message{
@@ -546,15 +686,13 @@ outline:none;
 
 input::placeholder{
 
-
 color:#9b8461;
-
 
 }
 
 
 
-/* wax seal button */
+/* announcement button */
 
 
 button{
@@ -590,7 +728,6 @@ border:2px solid #b18a45;
 cursor:pointer;
 
 
-
 box-shadow:
 
 0 6px 15px rgba(0,0,0,.25);
@@ -617,43 +754,136 @@ transform:translateY(-3px);
 
 
 
-/* welcome reveal */
 
 
-#welcome{
+/* calling card */
 
 
-margin-top:45px;
+.calling-card{
 
 
-font-family:'Great Vibes', cursive;
+display:none;
 
 
-font-size:42px;
+margin:45px auto 0;
 
 
-line-height:1.5;
+padding:35px;
 
 
-color:#713535;
+width:75%;
 
 
-opacity:0;
+border:
+
+1px solid #b18a45;
 
 
-animation:none;
+background:
+
+rgba(250,243,220,.75);
+
+
+
+box-shadow:
+
+0 8px 20px rgba(0,0,0,.15);
+
+
+position:relative;
 
 
 }
 
 
 
-#welcome.show{
+.calling-card:before,
+
+.calling-card:after{
+
+
+content:"❦";
+
+
+position:absolute;
+
+
+color:#b18a45;
+
+
+font-size:28px;
+
+
+}
+
+
+
+.calling-card:before{
+
+
+top:8px;
+
+left:15px;
+
+
+}
+
+
+
+.calling-card:after{
+
+
+bottom:8px;
+
+right:15px;
+
+
+}
+
+
+
+
+.calling-card.show{
+
+
+display:block;
 
 
 animation:
 
 inkReveal 2s ease forwards;
+
+
+}
+
+
+
+.guest-name{
+
+
+font-family:'Great Vibes', cursive;
+
+
+font-size:55px;
+
+
+color:#713535;
+
+
+margin:15px;
+
+
+}
+
+
+
+.card-text{
+
+
+font-size:25px;
+
+
+line-height:1.5;
 
 
 }
@@ -674,7 +904,7 @@ filter:blur(5px);
 
 transform:
 
-translateY(15px);
+translateY(20px);
 
 
 }
@@ -698,11 +928,14 @@ translateY(0);
 }
 
 
+
 }
 
 
 
-#drawingRoom{
+
+
+.reset-link{
 
 
 display:none;
@@ -711,17 +944,30 @@ display:none;
 margin-top:35px;
 
 
+font-size:22px;
+
+
+font-style:italic;
+
+
+color:#80602d;
+
+
+cursor:pointer;
+
+
 }
 
 
 
-#drawingRoom button{
+.reset-link:hover{
 
 
-background:#31452f;
+text-decoration:underline;
 
 
 }
+
 
 
 
@@ -744,6 +990,8 @@ color:#6d5a42;
 
 
 
+
+
 </style>
 
 
@@ -751,7 +999,10 @@ color:#6d5a42;
 
 
 
+
+
 <body>
+
 
 
 
@@ -759,9 +1010,11 @@ color:#6d5a42;
 
 
 
-<div class="rose rose-left"></div>
+<div class="botanical botanical-top"></div>
 
-<div class="rose rose-right"></div>
+<div class="botanical botanical-bottom"></div>
+
+
 
 
 
@@ -776,7 +1029,10 @@ color:#6d5a42;
 
 
 
+
 <div class="content">
+
+
 
 
 
@@ -789,11 +1045,14 @@ color:#6d5a42;
 
 
 
+
 <div class="estate">
 
 The Frisbee Estate
 
 </div>
+
+
 
 
 
@@ -805,11 +1064,23 @@ Registry of Esteemed Guests
 
 
 
+
+
 <div class="subtitle">
 
 In Celebration of an Afternoon Tea
 
 </div>
+
+
+
+
+<div class="date">
+
+The Nineteenth Day of September, Two Thousand Twenty-Six
+
+</div>
+
 
 
 
@@ -823,10 +1094,11 @@ In Celebration of an Afternoon Tea
 
 
 
+
 <div class="message">
 
 
-Welcome to the Frisbee Estate.
+Welcome to the Frisbee Estate, dear guest.
 
 
 <br><br>
@@ -836,6 +1108,7 @@ The family is delighted by your visit and eagerly anticipates the pleasure of yo
 
 
 </div>
+
 
 
 
@@ -851,8 +1124,8 @@ Kindly inscribe your name below so that your arrival may be properly announced.
 
 
 
-<div class="signature">
 
+<div class="signature">
 
 
 <input
@@ -866,6 +1139,7 @@ placeholder="Write your name..."
 
 
 <br>
+
 
 
 
@@ -884,24 +1158,34 @@ placeholder="Write your name..."
 
 
 
-<div id="welcome"></div>
+
+<div class="calling-card" id="callingCard">
+
+
+<div class="guest-name" id="guestNameDisplay"></div>
 
 
 
+<div class="card-text" id="welcomeText"></div>
 
-<div id="drawingRoom">
-
-
-<button onclick="enterDrawingRoom()">
-
-
-✦ Proceed to the Drawing Room ✦
-
-
-</button>
 
 
 </div>
+
+
+
+
+
+<div class="reset-link" id="resetLink" onclick="resetRegistry()">
+
+
+
+❦ Prepare for the next arrival ❦
+
+
+
+</div>
+
 
 
 
@@ -923,11 +1207,13 @@ placeholder="Write your name..."
 
 
 
+
+</div>
+
+
 </div>
 
 
-
-</div>
 
 
 
@@ -937,10 +1223,19 @@ placeholder="Write your name..."
 
 
 
+
+
 <script>
 
 
+
+let resetTimer;
+
+
+
+
 function announceGuest(){
+
 
 
 let name =
@@ -955,10 +1250,16 @@ window.guests[name];
 
 
 
+let card =
 
-let welcome =
+document.getElementById("callingCard");
 
-document.getElementById("welcome");
+
+
+let resetLink =
+
+document.getElementById("resetLink");
+
 
 
 
@@ -967,51 +1268,39 @@ if(guest){
 
 
 
-welcome.innerHTML =
+document.getElementById("guestNameDisplay").innerHTML =
+
+
+guest.title;
 
 
 
-"❦ Welcome, " + guest.title + " ❦"
+document.getElementById("welcomeText").innerHTML =
 
 
-+
 
-"<br><br>"
-
-
-+
-
-"Your presence has been duly recorded"
-
-
-+
-
-"<br>among the esteemed guests of the Frisbee Estate."
-
+"Your arrival has been duly recorded among the esteemed guests of The Frisbee Estate."
 
 +
 
 "<br><br>"
 
-
-
 +
 
-"You are welcomed among:"
-
-
-+
-
-"<br><strong>" + guest.society + "</strong>";
+"The household eagerly awaits the pleasure of your company this afternoon."
 
 
 
 
-welcome.classList.add("show");
+
+document.querySelector(".signature").style.display="none";
 
 
 
-document.getElementById("drawingRoom").style.display="block";
+card.classList.add("show");
+
+
+resetLink.style.display="block";
 
 
 
@@ -1022,20 +1311,15 @@ document.getElementById("drawingRoom").style.display="block";
 else{
 
 
-
-welcome.innerHTML =
+document.getElementById("welcomeText").innerHTML =
 
 
 "The registry does not yet recognize this guest.";
 
 
+card.classList.add("show");
 
-welcome.classList.add("show");
-
-
-
-}
-
+resetLink.style.display="block";
 
 
 }
@@ -1043,14 +1327,25 @@ welcome.classList.add("show");
 
 
 
-function enterDrawingRoom(){
+clearTimeout(resetTimer);
 
 
-alert(
 
-"The Drawing Room awaits your arrival."
+resetTimer=setTimeout(resetRegistry,60000);
 
-);
+
+
+}
+
+
+
+
+
+
+function resetRegistry(){
+
+
+location.reload();
 
 
 }
@@ -1062,7 +1357,7 @@ alert(
 
 
 
+
 </body>
 
 </html>
-
