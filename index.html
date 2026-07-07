@@ -1451,6 +1451,10 @@ src="images/single-rose.png"
 
 </div>
 
+<audio id="receivingBell" src="audio/receiving_bell.mp3"></audio>
+
+<audio id="announcementAudio"></audio>
+   
 <script src="guest.js"></script>
 
 
@@ -1466,50 +1470,58 @@ let resetTimer;
 function announceGuest(){
 
 
-
 let name =
-
 document.getElementById("guestName").value.trim();
 
 
-
 let guest =
-
 window.guests[name];
 
 
-
 let card =
-
 document.getElementById("callingCard");
 
 
-
 let resetLink =
-
 document.getElementById("resetLink");
 
 
+// audio elements
+let bell =
+document.getElementById("receivingBell");
 
+let announcement =
+document.getElementById("announcementAudio");
 
 
 
 if(guest){
 
 
+// play receiving bell
+
+bell.currentTime = 0;
+bell.play();
+
+
+// wait for bell, then play announcement
+
+setTimeout(function(){
+
+announcement.src = guest.audio;
+announcement.play();
+
+},1500);
+
+
 
 document.getElementById("guestNameDisplay").innerHTML =
 
-
-guest.title;
-
-
-
+guest.title + " " + name;
 
 
 
 document.getElementById("welcomeText").innerHTML =
-
 
 
 "Your arrival has been duly recorded among the esteemed guests of The Frisbee Estate."
@@ -1542,24 +1554,18 @@ document.getElementById("welcomeText").innerHTML =
 
 
 
-
-
 document.querySelector(".signature").style.display="none";
-
 
 
 card.classList.add("show");
 
 
-
 resetLink.style.display="block";
-
 
 
 }
 
 else{
-
 
 
 document.getElementById("guestNameDisplay").innerHTML =
@@ -1583,8 +1589,7 @@ document.getElementById("welcomeText").innerHTML =
 
 +
 
-"Please kindly try again."
-
+"Please kindly try again.";
 
 
 
@@ -1592,15 +1597,13 @@ document.getElementById("welcomeText").innerHTML =
 card.classList.add("show");
 
 
-
 resetLink.style.display="block";
-
 
 
 }
 
 
-
+}
 
 
 clearTimeout(resetTimer);
