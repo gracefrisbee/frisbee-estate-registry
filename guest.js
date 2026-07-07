@@ -1,11 +1,8 @@
 window.guests = {
     "Lydia": {
-        title: "Miss Lydia",
+        title: "Miss",
         society: "Hartfield Society"
     }
-    "Grace": {
-        title: "Lady Grace",
-        society: "Hostess of the Estate"
-    }
+
 };
 
