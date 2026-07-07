@@ -7,17 +7,14 @@
 
 <title>The Frisbee Estate</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 
 <style>
 
-
 *{
 box-sizing:border-box;
 }
-
 
 
 body{
@@ -52,8 +49,7 @@ color:#3d3022;
 }
 
 
-
-/* parchment paper */
+/* parchment invitation */
 
 .page{
 
@@ -61,9 +57,7 @@ width:850px;
 
 max-width:90%;
 
-
 position:relative;
-
 
 padding:80px 90px;
 
@@ -89,17 +83,71 @@ border:3px double #b18a45;
 
 box-shadow:
 
-0 20px 45px rgba(0,0,0,.3);
+0 20px 45px rgba(0,0,0,.3),
+
+0 0 60px rgba(216,170,80,.18);
 
 
 overflow:hidden;
 
 
+animation:
+
+unfold 2s ease-out forwards;
+
+transform-origin:center top;
+
+opacity:0;
+
 }
 
 
 
-/* engraved borders */
+@keyframes unfold{
+
+
+0%{
+
+opacity:0;
+
+transform:
+
+scaleY(.85)
+
+translateY(-40px);
+
+filter:blur(4px);
+
+}
+
+
+
+50%{
+
+opacity:1;
+
+}
+
+
+
+100%{
+
+opacity:1;
+
+transform:
+
+scaleY(1)
+
+translateY(0);
+
+filter:blur(0);
+
+}
+
+
+}
+
+
 
 
 .page:before{
@@ -130,8 +178,7 @@ border:1px solid rgba(177,138,69,.45);
 
 
 
-/* roses behind parchment */
-
+/* rose watermark */
 
 .rose{
 
@@ -176,7 +223,6 @@ background-image:url(
 }
 
 
-
 .rose-right{
 
 top:-50px;
@@ -195,9 +241,7 @@ background-image:url(
 
 
 
-
-/* corner ornaments */
-
+/* corners */
 
 .ornate-corner{
 
@@ -214,7 +258,6 @@ z-index:3;
 }
 
 
-
 .corner1{
 
 top:25px;
@@ -226,7 +269,6 @@ border-top:2px solid;
 border-left:2px solid;
 
 }
-
 
 
 .corner2{
@@ -242,7 +284,6 @@ border-right:2px solid;
 }
 
 
-
 .corner3{
 
 bottom:25px;
@@ -254,7 +295,6 @@ border-bottom:2px solid;
 border-left:2px solid;
 
 }
-
 
 
 .corner4{
@@ -284,7 +324,6 @@ color:#b18a45;
 }
 
 
-
 .corner1:after{
 
 top:8px;
@@ -292,7 +331,6 @@ top:8px;
 left:12px;
 
 }
-
 
 
 .corner2:after{
@@ -306,7 +344,6 @@ transform:scaleX(-1);
 }
 
 
-
 .corner3:after{
 
 bottom:8px;
@@ -316,7 +353,6 @@ left:12px;
 transform:rotate(180deg);
 
 }
-
 
 
 .corner4:after{
@@ -331,10 +367,7 @@ transform:rotate(180deg) scaleX(-1);
 
 
 
-
-
-/* main content */
-
+/* content */
 
 .content{
 
@@ -347,7 +380,6 @@ text-align:center;
 }
 
 
-
 .crest{
 
 font-size:65px;
@@ -357,6 +389,36 @@ color:#b18a45;
 text-shadow:1px 1px #80602d;
 
 margin-bottom:10px;
+
+
+animation:
+
+fadeIn 3s ease forwards;
+
+}
+
+
+
+@keyframes fadeIn{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(-15px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
 
 }
 
@@ -415,9 +477,6 @@ font-size:30px;
 color:#b18a45;
 
 }
-
-
-
 .message{
 
 font-size:29px;
@@ -448,35 +507,38 @@ margin-top:45px;
 
 
 
-.signature-title{
-
-font-size:24px;
-
-}
-
-
-
 input{
+
 
 width:65%;
 
+
 background:transparent;
+
 
 border:none;
 
+
 border-bottom:2px solid #96733e;
+
 
 padding:12px;
 
+
 font-family:'Great Vibes', cursive;
+
 
 font-size:45px;
 
+
 text-align:center;
+
 
 color:#4a3828;
 
+
 outline:none;
+
 
 }
 
@@ -484,33 +546,59 @@ outline:none;
 
 input::placeholder{
 
+
 color:#9b8461;
+
 
 }
 
 
 
+/* wax seal button */
+
+
 button{
+
 
 margin-top:35px;
 
-padding:15px 45px;
+
+padding:18px 45px;
+
 
 font-family:'Cormorant Garamond', serif;
 
+
 font-size:24px;
+
 
 letter-spacing:2px;
 
+
 background:#713535;
+
 
 color:#fff5dc;
 
+
+border-radius:50px;
+
+
 border:2px solid #b18a45;
+
 
 cursor:pointer;
 
-box-shadow:0 5px 12px rgba(0,0,0,.2);
+
+
+box-shadow:
+
+0 6px 15px rgba(0,0,0,.25);
+
+
+
+transition:.4s;
+
 
 }
 
@@ -518,21 +606,120 @@ box-shadow:0 5px 12px rgba(0,0,0,.2);
 
 button:hover{
 
+
 background:#31452f;
+
+
+transform:translateY(-3px);
+
 
 }
 
 
 
+/* welcome reveal */
+
+
 #welcome{
+
 
 margin-top:45px;
 
-font-size:35px;
+
+font-family:'Great Vibes', cursive;
+
+
+font-size:42px;
+
 
 line-height:1.5;
 
+
 color:#713535;
+
+
+opacity:0;
+
+
+animation:none;
+
+
+}
+
+
+
+#welcome.show{
+
+
+animation:
+
+inkReveal 2s ease forwards;
+
+
+}
+
+
+
+@keyframes inkReveal{
+
+
+from{
+
+
+opacity:0;
+
+
+filter:blur(5px);
+
+
+transform:
+
+translateY(15px);
+
+
+}
+
+
+
+to{
+
+
+opacity:1;
+
+
+filter:blur(0);
+
+
+transform:
+
+translateY(0);
+
+
+}
+
+
+}
+
+
+
+#drawingRoom{
+
+
+display:none;
+
+
+margin-top:35px;
+
+
+}
+
+
+
+#drawingRoom button{
+
+
+background:#31452f;
+
 
 }
 
@@ -540,19 +727,25 @@ color:#713535;
 
 .quote{
 
+
 margin-top:55px;
+
 
 font-size:21px;
 
+
 font-style:italic;
 
+
 color:#6d5a42;
+
 
 }
 
 
 
 </style>
+
 
 </head>
 
@@ -561,7 +754,9 @@ color:#6d5a42;
 <body>
 
 
+
 <div class="page">
+
 
 
 <div class="rose rose-left"></div>
@@ -580,71 +775,92 @@ color:#6d5a42;
 
 
 
+
 <div class="content">
 
 
+
 <div class="crest">
+
 ⚜
+
 </div>
 
 
 
+
 <div class="estate">
+
 The Frisbee Estate
+
 </div>
 
 
 
 <div class="title">
+
 Registry of Esteemed Guests
+
 </div>
 
 
 
 <div class="subtitle">
+
 In Celebration of an Afternoon Tea
+
 </div>
+
 
 
 
 <div class="divider">
+
 ❧ ❧ ❧
+
 </div>
+
 
 
 
 <div class="message">
 
+
 Welcome to the Frisbee Estate.
+
 
 <br><br>
 
+
 The family is delighted by your visit and eagerly anticipates the pleasure of your company this afternoon.
 
+
 </div>
+
 
 
 
 <div class="note">
 
+
 Kindly inscribe your name below so that your arrival may be properly announced.
 
+
 </div>
+
 
 
 
 <div class="signature">
 
 
-<div class="signature-title">
-Your Most Honored Name
-</div>
 
+<input
 
-
-<input 
 id="guestName"
+
 placeholder="Write your name..."
+
 >
 
 
@@ -655,7 +871,9 @@ placeholder="Write your name..."
 
 <button onclick="announceGuest()">
 
+
 ✦ Announce My Arrival ✦
+
 
 </button>
 
@@ -671,19 +889,42 @@ placeholder="Write your name..."
 
 
 
+<div id="drawingRoom">
+
+
+<button onclick="enterDrawingRoom()">
+
+
+✦ Proceed to the Drawing Room ✦
+
+
+</button>
+
+
+</div>
+
+
+
+
+
 <div class="quote">
+
 
 "There is no charm equal to tenderness of heart."
 
+
 <br>
+
 
 — Jane Austen
 
-</div>
-
-
 
 </div>
+
+
+
+</div>
+
 
 
 </div>
@@ -695,35 +936,69 @@ placeholder="Write your name..."
 
 
 
+
 <script>
+
 
 function announceGuest(){
 
 
 let name =
+
 document.getElementById("guestName").value.trim();
 
 
 
 let guest =
+
 window.guests[name];
+
+
+
+
+let welcome =
+
+document.getElementById("welcome");
+
 
 
 
 if(guest){
 
 
-document.getElementById("welcome").innerHTML =
+
+welcome.innerHTML =
 
 
-"❦ Welcome " + guest.title +
 
+"❦ Welcome, " + guest.title + " ❦"
 
-"<br><br>Your presence has been entered into the household registry."
 
 +
 
-"<br><br>You are welcomed among:"
+"<br><br>"
+
+
++
+
+"Your presence has been duly recorded"
+
+
++
+
+"<br>among the esteemed guests of the Frisbee Estate."
+
+
++
+
+"<br><br>"
+
+
+
++
+
+"You are welcomed among:"
+
 
 +
 
@@ -731,24 +1006,59 @@ document.getElementById("welcome").innerHTML =
 
 
 
+
+welcome.classList.add("show");
+
+
+
+document.getElementById("drawingRoom").style.display="block";
+
+
+
 }
+
+
 
 else{
 
 
-document.getElementById("welcome").innerHTML =
+
+welcome.innerHTML =
+
 
 "The registry does not yet recognize this guest.";
 
 
-}
+
+welcome.classList.add("show");
 
 
 
 }
+
+
+
+}
+
+
+
+
+function enterDrawingRoom(){
+
+
+alert(
+
+"The Drawing Room awaits your arrival."
+
+);
+
+
+}
+
 
 
 </script>
+
 
 
 
