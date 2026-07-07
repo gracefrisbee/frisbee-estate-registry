@@ -1,5 +1,5 @@
 window.guests = {
-    "Grace": {
+    "Grace Frisbee": {
         title: "Miss",
         society: "Hartfield Society"
     }
