@@ -2,1617 +2,1213 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>The Frisbee Estate</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
-
 
 <style>
 
-
-*{
-box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-
-
-body{
-
-margin:0;
-
-min-height:100vh;
-
-padding:50px 0;
-
-display:flex;
-
-justify-content:center;
-
-align-items:flex-start;
-
-
-background:
-
-linear-gradient(
-rgba(235,220,188,.9),
-rgba(235,220,188,.9)
-),
-
-url("https://www.transparenttextures.com/patterns/old-wall.png");
-
-
-font-family:'Cormorant Garamond', serif;
-
-color:#3d3022;
-
+html, body {
+    margin: 0;
+    min-height: 100%;
 }
 
+body {
+    min-height: 100vh;
+    padding: 25px 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background:
+        linear-gradient(
+            rgba(235,220,188,.9),
+            rgba(235,220,188,.9)
+        ),
+        url("https://www.transparenttextures.com/patterns/old-wall.png");
+
+    font-family: 'Cormorant Garamond', serif;
+    color: #3d3022;
+}
 
 
 /* =========================
    PARCHMENT PAGE
 ========================= */
 
+.page {
+    width: min(850px, 100%);
+    min-height: calc(100vh - 50px);
 
-.page{
+    position: relative;
 
+    padding: clamp(55px, 8vw, 80px) clamp(25px, 9vw, 90px);
 
-width:850px;
+    background:
+        radial-gradient(
+            rgba(120,90,50,.07) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            rgba(248,239,216,.97),
+            rgba(248,239,216,.97)
+        );
 
+    background-size: 10px 10px;
 
-max-width:90%;
+    border: 3px double #b18a45;
 
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.3),
+        0 0 60px rgba(216,170,80,.18);
 
-position:relative;
+    overflow: hidden;
 
+    animation: unfold 1.8s ease-out forwards;
 
-padding:80px 90px;
+    transform-origin: center top;
 
-
-
-background:
-
-
-radial-gradient(
-
-rgba(120,90,50,.07) 1px,
-
-transparent 1px
-
-),
-
-
-linear-gradient(
-
-rgba(248,239,216,.97),
-
-rgba(248,239,216,.97)
-
-);
-
-
-
-background-size:10px 10px;
-
-
-
-border:
-
-3px double #b18a45;
-
-
-
-box-shadow:
-
-
-0 20px 45px rgba(0,0,0,.3),
-
-
-0 0 60px rgba(216,170,80,.18);
-
-
-
-overflow:hidden;
-
-
-
-animation:
-
-unfold 1.8s ease-out forwards;
-
-
-
-transform-origin:center top;
-
-
-opacity:0;
-
-
+    opacity: 0;
 }
 
+@keyframes unfold {
+    0% {
+        opacity: 0;
+        transform: scaleY(.85) translateY(-40px);
+        filter: blur(4px);
+    }
 
+    60% {
+        opacity: 1;
+    }
 
-
-
-@keyframes unfold{
-
-
-0%{
-
-
-opacity:0;
-
-
-transform:
-
-
-scaleY(.85)
-
-translateY(-40px);
-
-
-filter:blur(4px);
-
-
+    100% {
+        opacity: 1;
+        transform: scaleY(1) translateY(0);
+        filter: blur(0);
+    }
 }
-
-
-
-60%{
-
-
-opacity:1;
-
-
-}
-
-
-
-100%{
-
-
-opacity:1;
-
-
-transform:
-
-
-scaleY(1)
-
-translateY(0);
-
-
-filter:blur(0);
-
-
-}
-
-
-
-}
-
-
-
-
-/* inner engraved borders */
-
-
-.page:before{
-
-
-content:"";
-
-
-position:absolute;
-
-
-inset:18px;
-
-
-
-border:
-
-1px solid #b18a45;
-
-
-
-pointer-events:none;
-
-
-}
-
-
-
-.page:after{
-
-
-content:"";
-
-
-position:absolute;
-
-
-inset:28px;
-
-
-
-border:
-
-1px solid rgba(177,138,69,.45);
-
-
-
-pointer-events:none;
-
-
-}
-
-
 
 
 /* =========================
-   VICTORIAN BOTANICAL ART
+   INNER BORDERS
 ========================= */
 
+.page:before {
+    content: "";
+    position: absolute;
+    inset: 18px;
 
-.rose-branch{
+    border: 1px solid #b18a45;
 
-position:absolute;
+    pointer-events: none;
+}
 
-width:380px;
+.page:after {
+    content: "";
+    position: absolute;
+    inset: 28px;
 
-top:-15px;
+    border: 1px solid rgba(177,138,69,.45);
 
-left:-25px;
-
-opacity:.14;
-
-filter:
-sepia(100%)
-saturate(70%)
-brightness(95%);
-
-z-index:0;
-
-pointer-events:none;
-
+    pointer-events: none;
 }
 
 
+/* =========================
+   BOTANICAL ART
+========================= */
 
-.single-rose{
+.rose-branch {
+    position: absolute;
 
+    width: 380px;
 
-position:absolute;
+    top: -15px;
+    left: -25px;
 
+    opacity: .14;
 
+    filter:
+        sepia(100%)
+        saturate(70%)
+        brightness(95%);
 
-width:220px;
+    z-index: 0;
 
-
-
-bottom:-25px;
-
-
-
-right:35px;
-
-
-
-opacity:.09;
-
-
-
-filter:
-
-sepia(90%)
-
-grayscale(100%);
-
-
-
-z-index:0;
-
-
-
-pointer-events:none;
-
-
-
+    pointer-events: none;
 }
 
+.single-rose {
+    position: absolute;
 
+    width: 220px;
+
+    bottom: -25px;
+    right: 35px;
+
+    opacity: .09;
+
+    filter:
+        sepia(90%)
+        grayscale(100%);
+
+    z-index: 0;
+
+    pointer-events: none;
+}
 
 
 /* =========================
    ORNATE CORNERS
 ========================= */
 
+.ornate-corner {
+    position: absolute;
 
-.ornate-corner{
+    width: 65px;
+    height: 65px;
 
+    border-color: #b18a45;
 
-position:absolute;
-
-
-width:65px;
-
-
-height:65px;
-
-
-border-color:#b18a45;
-
-
-z-index:3;
-
-
+    z-index: 3;
 }
 
+.corner1 {
+    top: 25px;
+    left: 25px;
 
-
-
-.corner1{
-
-
-top:25px;
-
-
-left:25px;
-
-
-
-border-top:2px solid;
-
-
-border-left:2px solid;
-
-
+    border-top: 2px solid;
+    border-left: 2px solid;
 }
 
+.corner2 {
+    top: 25px;
+    right: 25px;
 
-
-
-.corner2{
-
-
-top:25px;
-
-
-right:25px;
-
-
-
-border-top:2px solid;
-
-
-border-right:2px solid;
-
-
+    border-top: 2px solid;
+    border-right: 2px solid;
 }
 
+.corner3 {
+    bottom: 25px;
+    left: 25px;
 
-
-
-.corner3{
-
-
-bottom:25px;
-
-
-left:25px;
-
-
-
-border-bottom:2px solid;
-
-
-border-left:2px solid;
-
-
+    border-bottom: 2px solid;
+    border-left: 2px solid;
 }
 
+.corner4 {
+    bottom: 25px;
+    right: 25px;
 
-
-
-.corner4{
-
-
-bottom:25px;
-
-
-right:25px;
-
-
-
-border-bottom:2px solid;
-
-
-border-right:2px solid;
-
-
+    border-bottom: 2px solid;
+    border-right: 2px solid;
 }
 
+.ornate-corner:after {
+    content: "❦";
 
+    position: absolute;
 
+    font-size: 35px;
 
-
-.ornate-corner:after{
-
-
-content:"❦";
-
-
-position:absolute;
-
-
-font-size:35px;
-
-
-color:#b18a45;
-
-
+    color: #b18a45;
 }
 
-
-
-
-.corner1:after{
-
-
-top:8px;
-
-
-left:12px;
-
-
+.corner1:after {
+    top: 8px;
+    left: 12px;
 }
 
+.corner2:after {
+    top: 8px;
+    right: 12px;
 
-
-
-.corner2:after{
-
-
-top:8px;
-
-
-right:12px;
-
-
-transform:scaleX(-1);
-
-
+    transform: scaleX(-1);
 }
 
+.corner3:after {
+    bottom: 8px;
+    left: 12px;
 
-
-
-.corner3:after{
-
-
-bottom:8px;
-
-
-left:12px;
-
-
-transform:rotate(180deg);
-
-
+    transform: rotate(180deg);
 }
 
+.corner4:after {
+    bottom: 8px;
+    right: 12px;
 
-
-
-.corner4:after{
-
-
-bottom:8px;
-
-
-right:12px;
-
-
-transform:rotate(180deg) scaleX(-1);
-
-
+    transform: rotate(180deg) scaleX(-1);
 }
-
-
 
 
 /* =========================
    CONTENT
 ========================= */
 
+.content {
+    position: relative;
+    z-index: 2;
 
-.content{
+    text-align: center;
+}
 
+.crest {
+    font-size: clamp(45px, 7vw, 65px);
 
-position:relative;
+    color: #b18a45;
 
+    text-shadow:
+        1px 1px #80602d;
 
-z-index:2;
+    margin-bottom: 10px;
 
+    animation:
+        fadeIn 2.5s ease forwards;
+}
 
-text-align:center;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+.estate {
+    font-size: clamp(19px, 3vw, 27px);
+
+    letter-spacing: clamp(3px, 1vw, 8px);
+
+    text-transform: uppercase;
+
+    color: #55402c;
+}
+
+.title {
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(45px, 7vw, 68px);
+
+    font-weight: 400;
+
+    color: #713535;
+
+    margin: 15px 0;
+
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: clamp(22px, 4vw, 30px);
+
+    font-style: italic;
+
+    letter-spacing: 2px;
+}
+
+.date {
+    margin-top: 15px;
+
+    font-size: clamp(17px, 3vw, 22px);
+
+    letter-spacing: 2px;
+
+    color: #6d5a42;
+}
+
+.divider {
+    margin: 25px;
+
+    font-size: 30px;
+
+    color: #b18a45;
+}
+
+.message {
+    font-size: clamp(20px, 3.5vw, 29px);
+
+    line-height: 1.5;
+}
+
+.note {
+    margin-top: 25px;
+
+    font-size: clamp(18px, 3vw, 24px);
+
+    font-style: italic;
 }
 
 
+/* =========================
+   INPUT
+========================= */
 
+.signature {
+    margin-top: 35px;
+}
 
-.crest{
+input {
+    width: min(65%, 500px);
 
+    background: transparent;
 
-font-size:65px;
+    border: none;
 
+    border-bottom: 2px solid #96733e;
 
-color:#b18a45;
+    padding: 10px;
 
+    font-family: 'Great Vibes', cursive;
 
+    font-size: clamp(32px, 5vw, 45px);
 
-text-shadow:
+    text-align: center;
 
-1px 1px #80602d;
+    color: #4a3828;
 
+    outline: none;
+}
 
-
-margin-bottom:10px;
-
-
-
-animation:
-
-fadeIn 2.5s ease forwards;
-
-
+input::placeholder {
+    color: #9b8461;
 }
 
 
+/* =========================
+   BUTTON
+========================= */
 
-@keyframes fadeIn{
+button {
+    margin-top: 30px;
 
+    padding: 15px 35px;
 
-from{
+    font-family: 'Cormorant Garamond', serif;
 
+    font-size: clamp(19px, 3vw, 24px);
 
-opacity:0;
+    letter-spacing: 2px;
 
+    background: #713535;
 
-transform:translateY(-15px);
+    color: #fff5dc;
 
+    border-radius: 50px;
 
+    border: 2px solid #b18a45;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(0,0,0,.25);
+
+    transition: .4s;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
+button:hover {
+    background: #31452f;
 
-
-to{
-
-
-opacity:1;
-
-
-transform:translateY(0);
-
-
+    transform: translateY(-3px);
 }
 
-
-
+button:active {
+    transform: translateY(0);
 }
-
-
-
-
-.estate{
-
-
-font-size:27px;
-
-
-letter-spacing:8px;
-
-
-text-transform:uppercase;
-
-
-color:#55402c;
-
-
-
-}
-
-
-
-.title{
-
-
-font-family:'Great Vibes', cursive;
-
-
-font-size:68px;
-
-
-font-weight:400;
-
-
-color:#713535;
-
-
-margin:15px 0;
-
-
-letter-spacing:1px;
-
-
-}
-
-
-
-.subtitle{
-
-
-font-size:30px;
-
-
-font-style:italic;
-
-
-letter-spacing:2px;
-
-
-}
-
-
-
-.date{
-
-
-margin-top:15px;
-
-
-font-size:22px;
-
-
-letter-spacing:2px;
-
-
-color:#6d5a42;
-
-
-}
-
-
-
-.divider{
-
-
-margin:30px;
-
-
-font-size:30px;
-
-
-color:#b18a45;
-
-
-}
-
-.message{
-
-font-size:29px;
-
-line-height:1.6;
-
-}
-
-
-
-.note{
-
-
-margin-top:30px;
-
-
-font-size:24px;
-
-
-font-style:italic;
-
-
-}
-
-
-
-
-.signature{
-
-
-margin-top:45px;
-
-
-}
-
-
-
-
-input{
-
-
-width:65%;
-
-
-background:transparent;
-
-
-border:none;
-
-
-border-bottom:2px solid #96733e;
-
-
-padding:12px;
-
-
-
-font-family:'Great Vibes', cursive;
-
-
-
-font-size:45px;
-
-
-
-text-align:center;
-
-
-
-color:#4a3828;
-
-
-
-outline:none;
-
-
-
-}
-
-
-
-input::placeholder{
-
-
-color:#9b8461;
-
-
-}
-
-
-
-
-button{
-
-
-margin-top:35px;
-
-
-
-padding:18px 45px;
-
-
-
-font-family:'Cormorant Garamond', serif;
-
-
-
-font-size:24px;
-
-
-
-letter-spacing:2px;
-
-
-
-background:#713535;
-
-
-
-color:#fff5dc;
-
-
-
-border-radius:50px;
-
-
-
-border:2px solid #b18a45;
-
-
-
-cursor:pointer;
-
-
-
-box-shadow:
-
-0 6px 15px rgba(0,0,0,.25);
-
-
-
-transition:.4s;
-
-
-
-}
-
-
-
-button:hover{
-
-
-background:#31452f;
-
-
-transform:translateY(-3px);
-
-
-}
-
-
-
 
 
 /* =========================
    CALLING CARD
 ========================= */
 
+.calling-card {
+    display: none;
 
-.calling-card{
+    margin: 40px auto 0;
 
+    padding: 30px;
 
-display:none;
+    width: 85%;
 
+    border: 1px solid #b18a45;
 
+    background:
+        rgba(250,243,220,.82);
 
-margin:45px auto 0;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15);
 
-
-
-padding:35px;
-
-
-
-width:75%;
-
-
-
-border:
-
-1px solid #b18a45;
-
-
-
-background:
-
-rgba(250,243,220,.82);
-
-
-
-box-shadow:
-
-
-0 8px 20px rgba(0,0,0,.15);
-
-
-
-position:relative;
-
-
-
+    position: relative;
 }
-
-
 
 .calling-card:before,
+.calling-card:after {
+    content: "❦";
 
-.calling-card:after{
+    position: absolute;
 
+    color: #b18a45;
 
-content:"❦";
+    font-size: 28px;
+}
 
+.calling-card:before {
+    top: 8px;
+    left: 15px;
+}
 
-position:absolute;
+.calling-card:after {
+    bottom: 8px;
+    right: 15px;
+}
 
+.calling-card.show {
+    display: block;
 
-color:#b18a45;
+    animation:
+        inkReveal 2s ease forwards;
+}
 
+.guest-name {
+    font-family: 'Great Vibes', cursive;
 
-font-size:28px;
+    font-size: clamp(40px, 7vw, 55px);
 
+    color: #713535;
 
+    margin: 15px;
+}
+
+.card-text {
+    font-size: clamp(19px, 3vw, 25px);
+
+    line-height: 1.5;
+}
+
+@keyframes inkReveal {
+    from {
+        opacity: 0;
+
+        filter: blur(5px);
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        filter: blur(0);
+
+        transform: translateY(0);
+    }
 }
 
 
+/* =========================
+   RESET
+========================= */
 
-.calling-card:before{
+.reset-link {
+    display: none;
 
+    margin-top: 30px;
 
-top:8px;
+    font-size: 20px;
 
+    font-style: italic;
 
-left:15px;
+    color: #80602d;
 
+    cursor: pointer;
+}
 
+.reset-link:hover {
+    text-decoration: underline;
 }
 
 
+/* =========================
+   QUOTE
+========================= */
 
-.calling-card:after{
+.quote-area {
+    position: relative;
 
+    margin-top: 40px;
 
-bottom:8px;
+    overflow: hidden;
 
+    padding: 25px;
+}
 
-right:15px;
+.quote-rose {
+    position: absolute;
 
+    width: 140px;
 
+    right: 10px;
+
+    bottom: -5px;
+
+    opacity: .10;
+
+    filter:
+        sepia(100%)
+        saturate(80%)
+        brightness(95%);
+
+    z-index: 0;
+
+    transform: rotate(-5deg);
+}
+
+.quote {
+    position: relative;
+
+    z-index: 1;
+
+    font-size: clamp(17px, 3vw, 21px);
+
+    font-style: italic;
+
+    color: #6d5a42;
 }
 
 
+/* =========================
+   IPAD
+========================= */
 
+@media (max-width: 900px) and (min-height: 600px) {
 
-.calling-card.show{
+    body {
+        padding: 12px;
+    }
 
+    .page {
+        min-height: calc(100vh - 24px);
 
-display:block;
+        padding-top: 45px;
+        padding-bottom: 35px;
+    }
 
+    .divider {
+        margin: 18px;
+    }
 
-animation:
+    .message br + br {
+        display: none;
+    }
 
-inkReveal 2s ease forwards;
-
-
-
+    .quote-area {
+        margin-top: 25px;
+        padding: 15px;
+    }
 }
 
 
+/* =========================
+   PHONE
+========================= */
 
-.guest-name{
+@media (max-width: 600px) {
 
+    body {
+        padding: 0;
+    }
 
-font-family:'Great Vibes', cursive;
+    .page {
+        width: 100%;
+        min-height: 100vh;
 
+        border-left: none;
+        border-right: none;
 
-font-size:55px;
+        padding:
+            55px 25px
+            30px 25px;
+    }
 
+    .page:before {
+        inset: 12px;
+    }
 
-color:#713535;
+    .page:after {
+        inset: 20px;
+    }
 
+    .ornate-corner {
+        width: 45px;
+        height: 45px;
+    }
 
-margin:15px;
+    .corner1,
+    .corner2 {
+        top: 18px;
+    }
 
+    .corner3,
+    .corner4 {
+        bottom: 18px;
+    }
 
+    input {
+        width: 90%;
+    }
+
+    .calling-card {
+        width: 95%;
+        padding: 25px 15px;
+    }
+
+    .rose-branch {
+        width: 280px;
+    }
 }
-
-
-
-.card-text{
-
-
-font-size:25px;
-
-
-line-height:1.5;
-
-
-}
-
-
-
-@keyframes inkReveal{
-
-
-from{
-
-
-opacity:0;
-
-
-filter:blur(5px);
-
-
-transform:translateY(20px);
-
-
-}
-
-
-
-to{
-
-
-opacity:1;
-
-
-filter:blur(0);
-
-
-transform:translateY(0);
-
-
-}
-
-
-
-}
-
-
-
-
-.reset-link{
-
-
-display:none;
-
-
-margin-top:35px;
-
-
-font-size:22px;
-
-
-font-style:italic;
-
-
-color:#80602d;
-
-
-cursor:pointer;
-
-
-
-}
-
-
-
-.reset-link:hover{
-
-
-text-decoration:underline;
-
-
-}
-
-
-
-
-
-.quote-area{
-
-
-position:relative;
-
-
-margin-top:55px;
-
-
-
-overflow:hidden;
-
-
-padding:30px;
-
-
-
-}
-
-
-
-.quote-rose{
-
-position:absolute;
-
-width:140px;
-
-right:10px;
-
-bottom:-5px;
-
-opacity:.10;
-
-filter:
-sepia(100%)
-saturate(80%)
-brightness(95%);
-
-z-index:0;
-
-transform:rotate(-5deg);
-
-}
-
-
-
-
-.quote{
-
-
-position:relative;
-
-
-z-index:1;
-
-
-font-size:21px;
-
-
-font-style:italic;
-
-
-color:#6d5a42;
-
-
-
-}
-
-
-
-
 
 </style>
-
-
 </head>
-
 
 
 <body>
 
-
-
-
 <div class="page">
 
+    <img
+        class="rose-branch"
+        src="images/rose-branch.png"
+    >
+
+    <div class="ornate-corner corner1"></div>
+    <div class="ornate-corner corner2"></div>
+    <div class="ornate-corner corner3"></div>
+    <div class="ornate-corner corner4"></div>
 
 
+    <div class="content">
 
-<!-- Victorian botanical illustrations -->
+        <div class="crest">
+            ⚜
+        </div>
+
+        <div class="estate">
+            The Frisbee Estate
+        </div>
+
+        <div class="title">
+            Registry of Esteemed Guests
+        </div>
+
+        <div class="subtitle">
+            In Celebration of an Afternoon Tea
+        </div>
+
+        <div class="date">
+            The Nineteenth Day of September, Two Thousand Twenty-Six
+        </div>
+
+        <div class="divider">
+            ❧ ❧ ❧
+        </div>
+
+        <div class="message">
+            Welcome to the Frisbee Estate, dear guest.
+
+            <br><br>
+
+            The family is delighted by your visit and eagerly anticipates the pleasure of your company this afternoon.
+        </div>
+
+        <div class="note">
+            Kindly inscribe your name below so that your arrival may be properly announced.
+        </div>
+
+        <div class="signature">
+
+            <input
+                id="guestName"
+                placeholder="Write your name..."
+                autocomplete="off"
+                onkeydown="if(event.key === 'Enter') announceGuest()"
+            >
+
+            <br>
+
+            <button onclick="announceGuest()">
+                ✦ Announce My Arrival ✦
+            </button>
+
+        </div>
 
 
-<img
+        <div class="calling-card" id="callingCard">
 
-class="rose-branch"
+            <div
+                class="guest-name"
+                id="guestNameDisplay">
+            </div>
 
-src="images/rose-branch.png"
+            <div
+                class="card-text"
+                id="welcomeText">
+            </div>
 
->
-
-
-
-
-
-
-
-
+        </div>
 
 
-<div class="ornate-corner corner1"></div>
+        <div
+            class="reset-link"
+            id="resetLink"
+            onclick="resetRegistry()">
+
+            ❦ Prepare for the next arrival ❦
+
+        </div>
 
 
-<div class="ornate-corner corner2"></div>
+        <div class="quote-area">
 
+            <img
+                class="quote-rose"
+                src="images/single-rose.png"
+            >
 
-<div class="ornate-corner corner3"></div>
+            <div class="quote">
 
+                "There is no charm equal to tenderness of heart."
 
-<div class="ornate-corner corner4"></div>
+                <br><br>
 
+                — Jane Austen
 
+            </div>
 
+        </div>
 
-
-
-
-<div class="content">
-
-
-
-
-
-<div class="crest">
-
-⚜
+    </div>
 
 </div>
 
 
+<audio
+    id="receivingBell"
+    src="audio/receiving_bell.mp3"
+    preload="auto">
+</audio>
 
+<audio
+    id="announcementAudio"
+    preload="auto">
+</audio>
 
 
-<div class="estate">
-
-The Frisbee Estate
-
-</div>
-
-
-
-
-
-<div class="title">
-
-Registry of Esteemed Guests
-
-</div>
-
-
-
-
-
-<div class="subtitle">
-
-In Celebration of an Afternoon Tea
-
-</div>
-
-
-
-
-
-<div class="date">
-
-The Nineteenth Day of September, Two Thousand Twenty-Six
-
-</div>
-
-
-
-
-
-<div class="divider">
-
-❧ ❧ ❧
-
-</div>
-
-
-
-
-
-
-
-<div class="message">
-
-
-Welcome to the Frisbee Estate, dear guest.
-
-
-<br><br>
-
-
-The family is delighted by your visit and eagerly anticipates the pleasure of your company this afternoon.
-
-
-</div>
-
-
-
-
-
-
-<div class="note">
-
-
-Kindly inscribe your name below so that your arrival may be properly announced.
-
-
-</div>
-
-
-
-
-
-
-<div class="signature">
-
-
-<input
-
-id="guestName"
-
-placeholder="Write your name..."
-
->
-
-
-
-
-
-<br>
-
-
-
-
-
-<button onclick="announceGuest()">
-
-
-✦ Announce My Arrival ✦
-
-
-</button>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="calling-card" id="callingCard">
-
-
-
-
-
-<div class="guest-name" id="guestNameDisplay"></div>
-
-
-
-
-
-<div class="card-text" id="welcomeText"></div>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-<div class="reset-link" id="resetLink" onclick="resetRegistry()">
-
-
-
-❦ Prepare for the next arrival ❦
-
-
-
-</div>
-
-
-
-
-
-
-<div class="quote-area">
-
-
-
-
-
-<img
-
-class="quote-rose"
-
-src="images/single-rose.png"
-
->
-
-
-
-
-
-
-
-<div class="quote">
-
-
-"There is no charm equal to tenderness of heart."
-
-
-<br><br>
-
-
-— Jane Austen
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-</div>
-
-
-
-</div>
-
-<audio id="receivingBell" src="audio/receiving_bell.mp3"></audio>
-
-<audio id="announcementAudio"></audio>
-   
 <script src="guest.js"></script>
-
 
 
 <script>
 
+/* ==========================================
+   GUEST REGISTRY
+========================================== */
 
-let resetTimer;
+function normalizeName(name) {
 
-
-
-function announceGuest(){
-
-
-let name =
-document.getElementById("guestName").value.trim();
-
-
-let guest =
-window.guests[name];
-
-
-let card =
-document.getElementById("callingCard");
-
-
-let resetLink =
-document.getElementById("resetLink");
-
-
-// receiving bell
-
-let bell =
-document.getElementById("receivingBell");
-
-
-
-if(guest){
-
-
-// Play bell before announcement
-
-if(bell){
-
-    bell.currentTime = 0;
-    bell.play();
+    return name
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, " ");
 
 }
 
 
+/* ==========================================
+   FIND GUEST
+========================================== */
 
-document.getElementById("guestNameDisplay").innerHTML =
+function findGuest(input) {
 
-guest.title + " " + name;
+    const search = normalizeName(input);
 
-
-
-document.getElementById("welcomeText").innerHTML =
-
-
-"Your arrival has been duly recorded among the esteemed guests of The Frisbee Estate."
-
-+
-
-"<br><br>"
-
-+
-
-"The household eagerly awaits the pleasure of your company this afternoon."
-
-+
-
-"<br><br>"
-
-+
-
-"You are welcomed among:"
-
-+
-
-"<br>"
-
-+
-
-"<strong>" + guest.society + "</strong>";
+    if (!search) {
+        return {
+            type: "none"
+        };
+    }
 
 
+    const guestNames = Object.keys(window.guests);
 
 
+    /*
+       First:
+       Look for an exact match.
+    */
 
-document.querySelector(".signature").style.display="none";
+    const exactMatch = guestNames.find(name =>
+        normalizeName(name) === search
+    );
 
 
-card.classList.add("show");
+    if (exactMatch) {
+
+        return {
+            type: "found",
+            name: exactMatch,
+            guest: window.guests[exactMatch]
+        };
+
+    }
 
 
-resetLink.style.display="block";
+    /*
+       Second:
+       Look for a guest whose full name
+       contains what was typed.
+       
+       Example:
+       "grace"
+       finds
+       "Grace Frisbee"
+    */
 
+    const partialMatches = guestNames.filter(name =>
+        normalizeName(name).includes(search)
+    );
+
+
+    if (partialMatches.length === 1) {
+
+        const name = partialMatches[0];
+
+        return {
+            type: "found",
+            name: name,
+            guest: window.guests[name]
+        };
+
+    }
+
+
+    /*
+       Third:
+       Allow individual words.
+       
+       Example:
+       "frisbee"
+       finds
+       "Grace Frisbee"
+    */
+
+    const wordMatches = guestNames.filter(name => {
+
+        const words = normalizeName(name).split(" ");
+
+        return words.some(word =>
+            word === search
+        );
+
+    });
+
+
+    if (wordMatches.length === 1) {
+
+        const name = wordMatches[0];
+
+        return {
+            type: "found",
+            name: name,
+            guest: window.guests[name]
+        };
+
+    }
+
+
+    /*
+       Multiple people found.
+    */
+
+    if (
+        partialMatches.length > 1 ||
+        wordMatches.length > 1
+    ) {
+
+        return {
+            type: "multiple"
+        };
+
+    }
+
+
+    return {
+        type: "notfound"
+    };
 
 }
 
-else{
+
+/* ==========================================
+   ANNOUNCE GUEST
+========================================== */
+
+function announceGuest() {
+
+    const input =
+        document.getElementById("guestName");
+
+    const searchText =
+        input.value.trim();
 
 
-document.getElementById("guestNameDisplay").innerHTML =
+    const result =
+        findGuest(searchText);
 
 
-"Guest Not Found";
+    const card =
+        document.getElementById("callingCard");
+
+    const resetLink =
+        document.getElementById("resetLink");
+
+    const signature =
+        document.querySelector(".signature");
 
 
+    const guestNameDisplay =
+        document.getElementById("guestNameDisplay");
+
+    const welcomeText =
+        document.getElementById("welcomeText");
 
 
+    /*
+       Nothing typed
+    */
 
-document.getElementById("welcomeText").innerHTML =
+    if (result.type === "none") {
 
+        input.focus();
 
+        return;
 
-"The registry does not yet recognize this guest."
-
-+
-
-"<br><br>"
-
-+
-
-"Please kindly try again.";
+    }
 
 
+    /*
+       Guest found
+    */
+
+    if (result.type === "found") {
+
+        const guest =
+            result.guest;
 
 
-card.classList.add("show");
+        /*
+           Play receiving bell
+        */
+
+        const bell =
+            document.getElementById("receivingBell");
 
 
-resetLink.style.display="block";
+        if (bell) {
 
+            bell.currentTime = 0;
+
+            bell.play().catch(() => {});
+
+        }
+
+
+        /*
+           Display name
+        */
+
+        guestNameDisplay.innerHTML =
+            (guest.title || "") +
+            " " +
+            result.name;
+
+
+        /*
+           Display welcome message
+        */
+
+        welcomeText.innerHTML =
+
+            "Your arrival has been duly recorded among the esteemed guests of The Frisbee Estate."
+
+            +
+
+            "<br><br>"
+
+            +
+
+            "The household eagerly awaits the pleasure of your company this afternoon."
+
+            +
+
+            "<br><br>"
+
+            +
+
+            "You are welcomed among:"
+
+            +
+
+            "<br>"
+
+            +
+
+            "<strong>" +
+            guest.society +
+            "</strong>";
+
+
+        /*
+           Hide input
+        */
+
+        signature.style.display = "none";
+
+
+        /*
+           Show calling card
+        */
+
+        card.classList.add("show");
+
+        resetLink.style.display = "block";
+
+
+        /*
+           Play guest-specific voice
+        */
+
+        if (guest.audio) {
+
+            const announcementAudio =
+                document.getElementById("announcementAudio");
+
+
+            announcementAudio.src =
+                guest.audio;
+
+
+            announcementAudio.currentTime = 0;
+
+
+            /*
+               Give the bell a moment before
+               the voice begins.
+            */
+
+            setTimeout(() => {
+
+                announcementAudio.play().catch(error => {
+
+                    console.log(
+                        "Audio could not autoplay:",
+                        error
+                    );
+
+                });
+
+            }, 900);
+
+        }
+
+        return;
+
+    }
+
+
+    /*
+       Multiple guests match
+    */
+
+    if (result.type === "multiple") {
+
+        guestNameDisplay.innerHTML =
+            "Several Esteemed Guests";
+
+
+        welcomeText.innerHTML =
+
+            "The registry recognizes several guests by that name."
+
+            +
+
+            "<br><br>"
+
+            +
+
+            "Kindly provide a little more of your name so that your arrival may be properly announced.";
+
+
+        card.classList.add("show");
+
+        resetLink.style.display = "block";
+
+        return;
+
+    }
+
+
+    /*
+       Guest not found
+    */
+
+    guestNameDisplay.innerHTML =
+        "Guest Not Found";
+
+
+    welcomeText.innerHTML =
+
+        "The registry does not yet recognize this guest."
+
+        +
+
+        "<br><br>"
+
+        +
+
+        "Please kindly try again.";
+
+
+    card.classList.add("show");
+
+    resetLink.style.display = "block";
 
 }
 
 
-}
+/* ==========================================
+   RESET
+========================================== */
 
+function resetRegistry() {
 
-
-function resetRegistry(){
-
-
-location.reload();
-
+    location.reload();
 
 }
-
-
 
 </script>
 
-
-
 </body>
-
-
 </html>
