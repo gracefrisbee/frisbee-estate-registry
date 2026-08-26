@@ -51,7 +51,7 @@ window.guests = {
     "Caroline Frisbee": {
         title: "Duchess",
         society: "The Frisbee Estate",
-        audio: "audio/duchesscarolinefrisbee.mp3"
+        audio: "audio/carolinefrisbee.mp3"
     },
 
     "Ella Iervolino": {
