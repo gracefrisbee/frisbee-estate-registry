@@ -48,7 +48,7 @@ window.guests = {
         audio: "audio/corinneliu.mp3"
     },
 
-    "Duchess Caroline Frisbee": {
+    "Caroline Frisbee": {
         title: "Duchess",
         society: "The Frisbee Estate",
         audio: "audio/duchesscarolinefrisbee.mp3"
